@@ -1,6 +1,6 @@
 import "./NavBar.css"
 
-export const Header = () => {
+export const NavBar = () => {
     return (
         <ul>
             <li><a className="active" href="#home">Home</a></li>
