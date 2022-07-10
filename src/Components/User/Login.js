@@ -1,14 +1,16 @@
+import "./Login.css"
+
 export const Login = () => {
     return (
         <form method="POST">
-            <table>
+            <table className="LoginTable">
                 <tbody>
                 <tr>
                     <td>
                         <label htmlFor="email">Email</label>
                     </td>
                     <td>
-                        <input type="text" name="email" required/>
+                        <input type="text" placeholder="Enter Email" name="email" required/>
                     </td>
                 </tr>
     
@@ -17,16 +19,13 @@ export const Login = () => {
                         <label htmlFor="password">Password</label>
                     </td>
                     <td>
-                        <input type="password" name="password" required/>
+                        <input type="password" placeholder="Enter Password" name="password" required/>
                     </td>
                 </tr>
     
                 <tr>
-                    <td>
-                        <p>Submit</p>
-                    </td>
-                    <td>
-                        <button type="submit">Submit</button>
+                    <td colSpan={2}>
+                        <button type="submit">Log In</button>
                     </td>
                 </tr>
                 </tbody>
