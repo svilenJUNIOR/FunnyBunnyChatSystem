@@ -9,6 +9,12 @@ table.AllBunnies td {
     font-size: x-large;
 }
 
+table.AllBunnies button {
+    width: 99%;
+    height: 99%;
+    font-size: xx-large;
+}
+
 img {
     width: 100px;
     height: 100px;

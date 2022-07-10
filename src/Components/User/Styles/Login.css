@@ -10,7 +10,7 @@ table.LoginTable {
     font-size: xx-large;
 }
 
-button {
+table.LoginTable button {
     width: 99%;
     height: 99%;
     font-size: xx-large;

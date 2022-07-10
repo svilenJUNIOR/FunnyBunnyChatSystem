@@ -9,7 +9,7 @@ table.RegisterTable {
     font-size: xx-large;
 }
 
-button {
+table.RegisterTable button {
     width: 99%;
     height: 99%;
     font-size: xx-large;

@@ -14,6 +14,7 @@ export const All = () => {
                         <td>Gender</td>
                         <td>Breed</td>
                         <td>Looking for</td>
+                        <td></td>
                     </tr>
 
                     <tr>
@@ -24,6 +25,7 @@ export const All = () => {
                         <td>Male</td>
                         <td>Dutch Dwarf</td>
                         <td>You</td>
+                        <td><button type="submit">Chat</button></td>
                     </tr>
 
                     <tr>
@@ -34,6 +36,7 @@ export const All = () => {
                         <td>Female</td>
                         <td>Lion Head</td>
                         <td>Beta males to destroy mentally</td>
+                        <td><button type="submit">Chat</button></td>
                     </tr>
 
                 </tbody>
