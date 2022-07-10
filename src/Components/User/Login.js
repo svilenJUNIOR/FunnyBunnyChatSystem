@@ -1,8 +1,5 @@
-import "./Login.css"
-
 export const Login = () => {
     return (
-    <div className="box">
         <form method="POST">
             <table>
                 <tbody>
@@ -10,7 +7,7 @@ export const Login = () => {
                     <td>
                         <label htmlFor="email">Email</label>
                     </td>
-                    <td width="300px">
+                    <td>
                         <input type="text" name="email" required/>
                     </td>
                 </tr>
@@ -35,6 +32,5 @@ export const Login = () => {
                 </tbody>
             </table>
         </form>
-    </div>
     );
 }
