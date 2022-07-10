@@ -2,7 +2,7 @@ import "./Register.css"
 
 export const Register = () => {
     return (
-        <div className="RegisterForm">
+        <div className="box">
             <form method="POST">
                 <table>
                     <tbody>
