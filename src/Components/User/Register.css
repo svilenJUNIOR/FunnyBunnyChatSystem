@@ -1,0 +1,28 @@
+table.RegisterTable {
+    background-image: url("../../../public/Images/RegisterBackground.jpg");
+    background-repeat: no-repeat;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 800px;
+    height: 650px;
+    font-size: xx-large;
+}
+
+button {
+    width: 99%;
+    height: 99%;
+    font-size: xx-large;
+    background-color: green;
+}
+
+input {
+    width: 200px;
+    height: 50px;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+}

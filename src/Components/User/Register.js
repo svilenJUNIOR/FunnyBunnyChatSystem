@@ -1,7 +1,9 @@
+import "./Register.css";
+
 export const Register = () => {
     return (
         <form method="POST">
-            <table>
+            <table className="RegisterTable">
                 <tbody>
                     <tr>
                         <td>
@@ -32,12 +34,7 @@ export const Register = () => {
                     </tr>
 
                     <tr>
-
-                        <td>
-                            <p>Sign Up</p>
-                        </td>
-
-                        <td>
+                        <td colSpan={2}>
                             <button type="submit">Sign Up</button>
                         </td>
                     </tr>
