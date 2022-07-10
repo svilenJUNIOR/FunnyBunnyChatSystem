@@ -1,4 +1,4 @@
-import "./Login.css"
+import "./Styles/Login.css"
 
 export const Login = () => {
     return (
@@ -7,19 +7,19 @@ export const Login = () => {
                 <tbody>
                 <tr>
                     <td>
-                        <label htmlFor="email">Email</label>
+                        <label htmlFor="Email"><b>Email</b></label>
                     </td>
                     <td>
-                        <input type="text" placeholder="Enter Email" name="email" required/>
+                        <input type="text" placeholder="Enter Email" name="Email" required/>
                     </td>
                 </tr>
     
                 <tr>
                     <td>
-                        <label htmlFor="password">Password</label>
+                        <label htmlFor="Password"><b>Password</b></label>
                     </td>
                     <td>
-                        <input type="password" placeholder="Enter Password" name="password" required/>
+                        <input type="password" placeholder="Enter Password" name="Password" required/>
                     </td>
                 </tr>
     

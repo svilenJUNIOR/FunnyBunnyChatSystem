@@ -1,4 +1,4 @@
-import "./Register.css";
+import "./Styles/Register.css";
 
 export const Register = () => {
     return (
@@ -20,6 +20,30 @@ export const Register = () => {
                         </td>
                         <td>
                             <input type="password" placeholder="Enter Password" name="Password" required />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label htmlFor="HairColor"><b>Hair Color</b></label>
+                        </td>
+                        <td>
+                            <input type="text" placeholder="Enter Hair color" name="HairColor" required />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label htmlFor="Breed"><b>Breed</b></label>
+                        </td>
+                        <td>
+                            <select className="Breed">
+                                <option value="Default" defaultValue>Not Selected</option>
+                                <option value="DutchDwarf">Duch Dwarf</option>
+                                <option value="LionHead">Lion Head</option>
+                                <option value="BelgiumGiant">Belgium Giant</option>
+                                <option value="WildBreed">Wild Breed</option>
+                            </select>
                         </td>
                     </tr>
 
