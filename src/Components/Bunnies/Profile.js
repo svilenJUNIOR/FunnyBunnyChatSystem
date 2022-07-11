@@ -12,6 +12,7 @@ export const Profile = () => {
                 </div>
 
                 <div className="Info">
+                    <h2 className="PersonalInfo">Personal Info</h2>
                     <table className="InfoTable">
                         <tbody>
                             <tr>
@@ -37,6 +38,7 @@ export const Profile = () => {
                 </div>
 
                 <div className="AboutMe">
+                    <h2>About Me</h2>
                     sdibuo;sdhvodshiovhdiohvuowehghewgfwehfoghweoufhuoewhgfouwehfovweiofhweiohgfoqwehfwei
                     wefuiweghfuhweuofhuowehfowehwuiofhewuohfuoewbfvuowndvoweuohfuoewhgfiohwdohvfoweuifh
                     qwfuwehgfuwehfohewofheohfuoehfduoweqhfuoehu
@@ -47,10 +49,11 @@ export const Profile = () => {
                     <h2 className="Friends">My Friends</h2>
                     <table className="FriendsTable">
                         <tbody>
-                            <tr>friendName</tr>
-                            <tr>friendName</tr>
-                            <tr>friendName</tr>
-                            <tr>friendName</tr>
+                            <tr>friendName - <button>Chat</button></tr>
+                            <tr>friendName - <button>Chat</button></tr>
+                            <tr>friendName - <button>Chat</button></tr>
+                            <tr>friendName - <button>Chat</button></tr>
+                            <tr>friendName - <button>Chat</button></tr>
                         </tbody>
                     </table>
                 </div>
