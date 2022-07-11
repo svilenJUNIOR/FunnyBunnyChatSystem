@@ -37,3 +37,11 @@ button.SendButton {
     width: 195px;
     height: 194px;
 }
+
+p.Message {
+    font-size: 30px;
+}
+
+textarea::placeholder {
+    font-size: 40px;
+}
