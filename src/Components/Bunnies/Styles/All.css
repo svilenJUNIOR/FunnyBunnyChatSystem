@@ -1,10 +1,10 @@
 table {
-    margin-left: 200px;
+    margin-left: 10px;
     margin-top: 120px;
 }
 
 table.AllBunnies td {
-    background-color: grey;
+    background-color:  bisque;
     text-align: center;
     font-size: x-large;
 }
