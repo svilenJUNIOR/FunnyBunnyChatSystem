@@ -22,8 +22,6 @@ input {
     height: 50px;
 }
 
-table,
-th,
-td {
+table.LoginTable,th,td {
     border: 1px solid black;
 }

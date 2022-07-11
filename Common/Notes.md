@@ -41,3 +41,7 @@ The "chat" button leads to two part screen
 Home button leads to the currents bunny profile with is's info
 if the bunny is not premium the section shows payment page
 if the bunny is premium it shows form for editing personal info
+
+/------------------------------------------------------------------------------------/
+
+Add index page
