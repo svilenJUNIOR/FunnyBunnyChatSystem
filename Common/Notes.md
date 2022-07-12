@@ -7,7 +7,7 @@ Bunny model
 - Picture
 - Region (Habitat)
 - Gender
-- Breed
+- Hair Color
 - Looking for
 - Email
 - Password
@@ -20,6 +20,7 @@ On registration
 - Hair Color
 - Breed
 - Signature joke
+- Name
 
 The rest are required if the user (the bunny) whants his profile to be shown in the all page
 
@@ -43,5 +44,7 @@ if the bunny is not premium the section shows payment page
 if the bunny is premium it shows form for editing personal info
 
 /------------------------------------------------------------------------------------/
+ TODO:
 
 Add index page
+Download All Images

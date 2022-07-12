@@ -12,9 +12,7 @@ export const Register = () => {
                         <td>
                             <input type="text" placeholder="Enter Email" name="Email" required />
                         </td>
-                    </tr>
 
-                    <tr>
                         <td>
                             <label htmlFor="Password"><b>Password</b></label>
                         </td>
@@ -24,6 +22,13 @@ export const Register = () => {
                     </tr>
 
                     <tr>
+                        <td>
+                            <label htmlFor="Name"><b>Name</b></label>
+                        </td>
+                        <td>
+                            <input type="text" placeholder="Enter Name" name="Name" required />
+                        </td>
+
                         <td>
                             <label htmlFor="HairColor"><b>Hair Color</b></label>
                         </td>
@@ -45,9 +50,7 @@ export const Register = () => {
                                 <option value="WildBreed">Wild Breed</option>
                             </select>
                         </td>
-                    </tr>
 
-                    <tr>
                         <td>
                             <label htmlFor="SignatureJoke"><b>Signature Joke</b></label>
 
