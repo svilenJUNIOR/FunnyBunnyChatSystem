@@ -1,20 +1,22 @@
 table.LoginTable {
-    background-image: url("../../../../public/Images/RegisterBackground.jpg");
-    background-repeat: no-repeat;
-    background-size: 1110px;
+    background-color:rgba(255, 255, 255, 0.3);
     text-align: center;
     margin-top: 20px;
     margin-left: 20px;
-    width: 300px;
-    height: 320px;
+    width: 600px;
+    height: 400px;
     font-size: xx-large;
+    box-shadow: rgba(0, 0, 0, 1.56) 0px 22px 70px 4px;
 }
 
 table.LoginTable button {
-    width: 99%;
-    height: 99%;
-    font-size: xx-large;
-    background-color: green;
+    width: 70%;
+    height: 50%;
+    font-size: 30px;
+    background-color: white;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 input {
@@ -22,6 +24,6 @@ input {
     height: 50px;
 }
 
-table.LoginTable,th,td {
+table.LoginTable, th, td {
     border: 1px solid black;
 }
