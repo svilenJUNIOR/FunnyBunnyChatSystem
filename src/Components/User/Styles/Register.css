@@ -1,3 +1,8 @@
+div.WraperRegister {
+    margin-top: 10px;
+    margin-left: 135px;
+}
+
 table.RegisterTable {
     background-color:rgba(255, 255, 255, 0.3);
     text-align: center;
@@ -6,14 +11,14 @@ table.RegisterTable {
     width: 1200px;
     height: 650px;
     font-size: xx-large;
-    box-shadow: rgba(0, 0, 0, 1.56) 0px 22px 70px 4px;
+    box-shadow: rgba(0, 0, 0, 1.56) 10px 22px 70px 20px;
 }
 
 table.RegisterTable button {
     width: 99%;
     height: 99%;
     font-size: 50px;
-    background-color: white;
+    background-color: rgba(255,255,255, 0.6);
     margin-left: 350px;
     margin-bottom: 20px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
