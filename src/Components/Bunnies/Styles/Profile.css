@@ -5,18 +5,18 @@ div.Image {
 div.Wrapper {
     background-color: bisque;
     width: 1200px;
-    height: 560px;
+    height: 600px;
     margin-left: 150px;
 }
 
 div.Info {
-    margin-left:400px;
+    margin-left:350px;
     margin-top: -290px;
     width: 600px;
 }
 
 div.AboutMe {
-    margin-top: -30px;
+    margin-top: -20px;
     margin-left: 20px;
     width: 630px;
     height: 250px;
@@ -28,7 +28,7 @@ div.Friends {
     margin-left: 700px;
     width: 400px;
     height: 250px;
-    margin-top: -290px;
+    margin-top: -250px;
 }
 
 img.ProfilePic {
@@ -45,15 +45,15 @@ h1.ProfileHeading {
 
 h2 {
     text-align: center;
-    font-size: 50px;
+    font-size: 30px;
 }
 
 h2.PersonalInfo{
-    margin-top: 10px
+    margin-top: 20px
 }
 
 table.InfoTable {
-    margin-top: -50px;
+    margin-top: -20px;
     width: 500px;
     text-align: center;
     font-size: 23px;
@@ -61,8 +61,8 @@ table.InfoTable {
 
 table.InfoTable, td, tr {
     border: 0px;
-    width: 600px;
-    margin-left: 0px;;
+    width: 800px;
+    margin-left: 0px;
 }
 
 table.FriendsTable {
@@ -71,4 +71,10 @@ table.FriendsTable {
     font-size: x-large;
     border-spacing: 10px;
     text-align: center;
+}
+
+button.EditButton {
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
 }

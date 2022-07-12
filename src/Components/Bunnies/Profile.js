@@ -20,18 +20,21 @@ export const Profile = () => {
                                 <td><p>Name: Ivan</p></td>
                                 <td><p>Name: Ivan</p></td>
                                 <td><p>Name: Ivan</p></td>
-                            </tr>
-                            <tr>
+                            </tr> 
+                            <tr> 
+                                <td><p>Name: Ivan</p></td>
+                                <td><p>Name: Ivan</p></td>
+                                <td><p>Name: Ivan</p></td>
+                                <td><p>Name: Ivan</p></td>
+                            </tr> 
+                            <tr> 
                                 <td><p>Name: Ivan</p></td>
                                 <td><p>Name: Ivan</p></td>
                                 <td><p>Name: Ivan</p></td>
                                 <td><p>Name: Ivan</p></td>
                             </tr>
                             <tr>
-                                <td><p>Name: Ivan</p></td>
-                                <td><p>Name: Ivan</p></td>
-                                <td><p>Name: Ivan</p></td>
-                                <td><p>Name: Ivan</p></td>
+                                <td colspan={4}><button className="EditButton">Edit</button></td>
                             </tr>
                         </tbody>
                     </table>

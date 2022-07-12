@@ -4,6 +4,7 @@ import { Login } from "../Components/User/Login"
 import { All } from "../Components/Bunnies/All"
 import { Profile } from "../Components/Bunnies/Profile"
 import { ChatRoom } from "../Components/Common/ChatRoom"
+import { Edit } from "../Components/User/Edit"
 import { Routes, Route } from "react-router-dom"
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
                         <Route path="/Chat" element={<ChatRoom />} />
                         <Route path="/Register" element={<Register />} />
                         <Route path="/Login" element={<Login />} />
+                        <Route path="/Edit" element={<Edit />} />
                     </Routes>
 
                 </div>

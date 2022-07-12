@@ -62,7 +62,7 @@ export const Register = () => {
                         </tr>
 
                         <tr>
-                            <td colSpan={2}>
+                            <td colSpan={4}>
                                 <button type="submit">Sign Up</button>
                             </td>
                         </tr>

@@ -1,23 +1,27 @@
-div.WraperLogin {
-    margin-top: 120px;
-    margin-left: 450px;
+h1 {
+    margin-top: 0px;
 }
 
-table.LoginTable {
+div.WraperEdit {
+    margin-top: 0px;
+    margin-left: 135px;
+}
+
+table.EditTable {
     background-color:rgba(255, 255, 255, 0.3);
     text-align: center;
-    margin-top: 20px;
+    margin-top: 0px;
     margin-left: 20px;
-    width: 600px;
-    height: 400px;
+    width: 1200px;
+    height: 650px;
     font-size: xx-large;
-    box-shadow: rgba(0,0,0, 1.56) 10px 22px 70px 20px;
+    box-shadow: rgba(0, 0, 0, 1.56) 10px 22px 70px 20px;
 }
 
-table.LoginTable button {
-    width: 100%;
-    height: 100%;
-    font-size: 30px;
+table.EditTable button {
+    width: 99%;
+    height: 99%;
+    font-size: 50px;
     background-color: rgba(255,255,255, 0.6);
     margin-left: 0px;
     margin-bottom: 0px;
@@ -29,6 +33,12 @@ input {
     height: 50px;
 }
 
-table.LoginTable, th, td {
+table.EditTable, th, td {
     border: 1px solid black;
+}
+
+select.Breed{
+    width: 300px;
+    height: 50px;
+    font-size: 30px;
 }
