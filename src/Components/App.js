@@ -5,24 +5,25 @@ import { All } from "../Components/Bunnies/All"
 import { Profile } from "../Components/Bunnies/Profile"
 import { ChatRoom } from "../Components/Common/ChatRoom"
 import { Edit } from "../Components/User/Edit"
+import { HomePage } from "../Components/Common/HomePage"
 import { Routes, Route } from "react-router-dom"
 
 function App() {
     return (
         <main>
-                <NavBar />
+            <NavBar />
+            <div className="Content">
+                <Routes>
+                    <Route path="/" element={<HomePage/>} />
+                    <Route path="/Home" element={<Profile />} />
+                    <Route path="/All" element={<All />} />
+                    <Route path="/Chat" element={<ChatRoom />} />
+                    <Route path="/Register" element={<Register />} />
+                    <Route path="/Login" element={<Login />} />
+                    <Route path="/Edit" element={<Edit />} />
+                </Routes>
 
-                <div className="Content">
-                    <Routes>
-                        <Route path="/Home" element={<Profile />} />
-                        <Route path="/All" element={<All />} />
-                        <Route path="/Chat" element={<ChatRoom />} />
-                        <Route path="/Register" element={<Register />} />
-                        <Route path="/Login" element={<Login />} />
-                        <Route path="/Edit" element={<Edit />} />
-                    </Routes>
-
-                </div>
+            </div>
         </main>
     );
 }
