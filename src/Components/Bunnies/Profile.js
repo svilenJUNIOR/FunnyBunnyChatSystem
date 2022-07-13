@@ -1,4 +1,5 @@
 import "./Styles/Profile.css"
+import  { NavLink } from "react-router-dom";
 
 export const Profile = () => {
     return (
@@ -34,7 +35,7 @@ export const Profile = () => {
                                 <td><p>Name: Ivan</p></td>
                             </tr>
                             <tr>
-                                <td colspan={4}><button className="EditButton">Edit</button></td>
+                                <td colspan={4}><NavLink to="/Edit"><button className="EditButton">Edit</button></NavLink></td>
                             </tr>
                         </tbody>
                     </table>
@@ -52,11 +53,11 @@ export const Profile = () => {
                     <h2 className="Friends">My Friends</h2>
                     <table className="FriendsTable">
                         <tbody>
-                            <tr>friendName - <button>Chat</button></tr>
-                            <tr>friendName - <button>Chat</button></tr>
-                            <tr>friendName - <button>Chat</button></tr>
-                            <tr>friendName - <button>Chat</button></tr>
-                            <tr>friendName - <button>Chat</button></tr>
+                            <tr>friendName - <NavLink to="/Chat"><button>Chat</button></NavLink></tr>
+                            <tr>friendName - <NavLink to="/Chat"><button>Chat</button></NavLink></tr>
+                            <tr>friendName - <NavLink to="/Chat"><button>Chat</button></NavLink></tr>
+                            <tr>friendName - <NavLink to="/Chat"><button>Chat</button></NavLink></tr>
+                            <tr>friendName - <NavLink to="/Chat"><button>Chat</button></NavLink></tr>
                         </tbody>
                     </table>
                 </div>
