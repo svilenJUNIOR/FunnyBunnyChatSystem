@@ -1,4 +1,5 @@
 import "./Styles/All.css"
+import  { NavLink } from "react-router-dom";
 
 export const All = () => {
     return (
@@ -25,7 +26,7 @@ export const All = () => {
                         <td>Male</td>
                         <td>Dutch Dwarf</td>
                         <td>You</td>
-                        <td><button type="submit">Chat</button></td>
+                        <td><NavLink to="/Chat"><button type="submit">Chat</button></NavLink></td>
                     </tr>
 
                     <tr>
@@ -36,7 +37,7 @@ export const All = () => {
                         <td>Female</td>
                         <td>Lion Head</td>
                         <td>Beta males to destroy mentally</td>
-                        <td><button type="submit">Chat</button></td>
+                        <td><NavLink to="/Chat"><button type="submit">Chat</button></NavLink></td>
                     </tr>
 
                 </tbody>
