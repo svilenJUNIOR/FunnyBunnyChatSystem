@@ -1,49 +1,56 @@
 import "./Styles/Register.css";
+import { useState } from "react";
+
 
 export const Register = () => {
+
+    var [values, setValues] = useState({
+        Name: "",
+        Password: "",
+        Email: "",
+        Breed: "",
+        HairColor: "",
+        SignatureJoke: "",
+    });
+
+    var changeHandler = (e) => {
+        
+        setValues(state => ({
+            ...state,
+            [e.target.name]: e.target.value
+        }));
+    }
+
+    var submitHandler = (e) => {
+        e.preventDefault();
+       console.log(values);
+    } 
+    
     return (
         <div className="WraperRegister">
-            <form method="POST">
+            <form method="POST" onSubmit={submitHandler}>
                 <table className="RegisterTable">
                     <tbody>
                         <tr>
-                            <td>
-                                <label htmlFor="Email"><b>Email</b></label>
-                            </td>
-                            <td>
-                                <input type="text" placeholder="Enter Email" name="Email" required />
-                            </td>
+                            <td><label htmlFor="Email"><b>Email</b></label></td>
+                            <td><input type="text" placeholder="Enter Email" name="Email" required value={values.Email} onChange={changeHandler} /></td>
 
-                            <td>
-                                <label htmlFor="Password"><b>Password</b></label>
-                            </td>
-                            <td>
-                                <input type="password" placeholder="Enter Password" name="Password" required />
-                            </td>
+                            <td><label htmlFor="Password"><b>Password</b></label></td>
+                            <td><input type="password" placeholder="Enter Password" name="Password" required value={values.Password} onChange={changeHandler} /></td>
                         </tr>
 
                         <tr>
-                            <td>
-                                <label htmlFor="Name"><b>Name</b></label>
-                            </td>
-                            <td>
-                                <input type="text" placeholder="Enter Name" name="Name" required />
-                            </td>
+                            <td><label htmlFor="Name"><b>Name</b></label></td>
+                            <td><input type="text" placeholder="Enter Name" name="Name" required value={values.Name} onChange={changeHandler} /></td>
 
-                            <td>
-                                <label htmlFor="HairColor"><b>Hair Color</b></label>
-                            </td>
-                            <td>
-                                <input type="text" placeholder="Enter Hair color" name="HairColor" required />
-                            </td>
+                            <td><label htmlFor="HairColor"><b>Hair Color</b></label></td>
+                            <td><input type="text" placeholder="Enter Hair color" name="HairColor" required value={values.HairColor} onChange={changeHandler} /></td>
                         </tr>
 
                         <tr>
+                            <td><label htmlFor="Breed"><b>Breed</b></label></td>
                             <td>
-                                <label htmlFor="Breed"><b>Breed</b></label>
-                            </td>
-                            <td>
-                                <select className="Breed">
+                                <select className="Breed" name="Breed" value={values.Breed} onChange={changeHandler}>
                                     <option value="Default" defaultValue>Not Selected</option>
                                     <option value="DutchDwarf">Duch Dwarf</option>
                                     <option value="LionHead">Lion Head</option>
@@ -52,19 +59,12 @@ export const Register = () => {
                                 </select>
                             </td>
 
-                            <td>
-                                <label htmlFor="SignatureJoke"><b>Signature Joke</b></label>
-
-                            </td>
-                            <td>
-                                <input type="text" placeholder="Enter Signature Joke" name="SignatureJoke" required />
-                            </td>
+                            <td><label htmlFor="SignatureJoke"><b>Signature Joke</b></label></td>
+                            <td><input type="text" placeholder="Enter Signature Joke" name="SignatureJoke" required value={values.SignatureJoke} onChange={changeHandler}/></td>
                         </tr>
 
                         <tr>
-                            <td colSpan={4}>
-                                <button type="submit">Sign Up</button>
-                            </td>
+                            <td colSpan={4}><button type="submit">Sign Up</button></td>
                         </tr>
                     </tbody>
                 </table>
