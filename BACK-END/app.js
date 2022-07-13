@@ -1,4 +1,12 @@
 var express = require("express")
+var { ConnectWithDataBase } = require("./Data/DbContext");
+
 var app = express();
 
-app.listen(3000, () => console.log("I am listening"));
+ConnectWithDataBase()
+.then(() => {
+    app.listen(4000, () => console.log("I am listening"))
+})
+.catch((error) => {
+    console.log("Error " + error);
+});
