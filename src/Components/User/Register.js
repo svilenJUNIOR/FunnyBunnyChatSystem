@@ -1,7 +1,6 @@
 import "./Styles/Register.css";
 import { useState } from "react";
 
-
 export const Register = () => {
 
     var [values, setValues] = useState({
