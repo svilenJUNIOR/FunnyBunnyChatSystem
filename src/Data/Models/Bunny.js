@@ -43,6 +43,9 @@ const bunnySchema = new mongoose.Schema({
     LookingFor: {
         type: String,
     },
+    IsPremium: {
+        type: String,
+    }
 });
 
 const Bunny = mongoose.model('Bunny', bunnySchema);

@@ -1,4 +1,4 @@
-import "../Common/Styles/ChatRoom.css"
+import "./Styles/ChatRoom.css"
 
 export const ChatRoom = () => {
     return (
