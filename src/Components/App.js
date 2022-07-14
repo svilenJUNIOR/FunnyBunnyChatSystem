@@ -15,12 +15,12 @@ function App() {
             <div className="Content">
                 <Routes>
                     <Route path="/" element={<HomePage/>} />
-                    <Route path="/Home" element={<Profile />} />
-                    <Route path="/All" element={<All />} />
-                    <Route path="/Chat" element={<ChatRoom />} />
-                    <Route path="/Register" element={<Register />} />
-                    <Route path="/Login" element={<Login />} />
-                    <Route path="/Edit" element={<Edit />} />
+                    <Route path="Bunny/Profile" element={<Profile />} />
+                    <Route path="Bunny/All" element={<All />} />
+                    <Route path="Bunny/Chat" element={<ChatRoom />} />
+                    <Route path="User/Register" element={<Register />} />
+                    <Route path="User/Login" element={<Login />} />
+                    <Route path="Bunny/Edit" element={<Edit />} />
                 </Routes>
 
             </div>

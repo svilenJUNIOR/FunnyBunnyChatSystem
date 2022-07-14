@@ -1,7 +1,10 @@
 var express = require("express")
 var { ConnectWithDataBase } = require("./Data/DbContext");
+var router = require("./src/Router");
 
 var app = express();
+app.use(router);
+
 
 ConnectWithDataBase()
 .then(() => {
