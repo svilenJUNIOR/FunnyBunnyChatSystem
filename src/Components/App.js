@@ -7,16 +7,30 @@ import { ChatRoom } from "./Bunnies/ChatRoom"
 import { Edit } from "../Components/Bunnies/Edit"
 import { HomePage } from "../Components/Common/HomePage"
 import { Routes, Route } from "react-router-dom"
+import { useEffect, useState } from "react"
+import axios from "axios";
 
 function App() {
+
+    var [bunnies, setBunnies] = useState([]);
+
+    useEffect(() => {
+        async function GetBunnies() {
+            var response = await axios.get("http://localhost:4000/Bunny/All");
+            setBunnies(response.data);
+            console.log(bunnies);
+        }
+        GetBunnies();
+    }, []);
+    
     return (
         <main>
             <NavBar />
             <div className="Content">
                 <Routes>
-                    <Route path="/" element={<HomePage/>} />
+                    <Route path="/" element={<HomePage />} />
                     <Route path="Bunny/Profile" element={<Profile />} />
-                    <Route path="Bunny/All" element={<All />} />
+                    <Route path="Bunny/All" element={<All bunnies={bunnies} />} />
                     <Route path="Bunny/Chat" element={<ChatRoom />} />
                     <Route path="User/Register" element={<Register />} />
                     <Route path="User/Login" element={<Login />} />
