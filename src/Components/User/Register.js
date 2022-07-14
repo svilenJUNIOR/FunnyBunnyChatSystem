@@ -1,5 +1,6 @@
 import "./Styles/Register.css";
 import { useState } from "react";
+import axios from "axios";
 
 export const Register = () => {
 
@@ -13,7 +14,7 @@ export const Register = () => {
     });
 
     var changeHandler = (e) => {
-        
+
         setValues(state => ({
             ...state,
             [e.target.name]: e.target.value
@@ -22,9 +23,9 @@ export const Register = () => {
 
     var submitHandler = (e) => {
         e.preventDefault();
-       console.log(values);
-    } 
-    
+        axios.post("http://localhost:4000/User/Register",values);
+    }
+
     return (
         <div className="WraperRegister">
             <form method="POST" onSubmit={submitHandler}>
@@ -59,7 +60,7 @@ export const Register = () => {
                             </td>
 
                             <td><label htmlFor="SignatureJoke"><b>Signature Joke</b></label></td>
-                            <td><input type="text" placeholder="Enter Signature Joke" name="SignatureJoke" required value={values.SignatureJoke} onChange={changeHandler}/></td>
+                            <td><input type="text" placeholder="Enter Signature Joke" name="SignatureJoke" required value={values.SignatureJoke} onChange={changeHandler} /></td>
                         </tr>
 
                         <tr>
