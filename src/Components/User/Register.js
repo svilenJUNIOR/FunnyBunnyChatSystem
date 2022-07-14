@@ -1,8 +1,11 @@
 import "./Styles/Register.css";
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export const Register = () => {
+
+    let navigate = useNavigate();
 
     var [values, setValues] = useState({
         Name: "",
@@ -21,14 +24,15 @@ export const Register = () => {
         }));
     }
 
-    var submitHandler = (e) => {
+    var SubmitHandler = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:4000/User/Register",values);
+        axios.post("http://localhost:4000/User/Register", values);
+        navigate("/");
     }
 
     return (
         <div className="WraperRegister">
-            <form method="POST" onSubmit={submitHandler}>
+            <form method="POST" onSubmit={SubmitHandler}>
                 <table className="RegisterTable">
                     <tbody>
                         <tr>
