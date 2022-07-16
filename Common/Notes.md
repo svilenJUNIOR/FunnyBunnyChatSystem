@@ -1,20 +1,11 @@
 Bunny model
-
-- Email
-- Password
-- Hair Color
-- Breed
-- Signature joke
-- Name
-
 - Chat name
 - Age
 - Picture
 - Region (Habitat)
 - Gender
 
-On registration
-
+User model
 - Email
 - Password
 - Hair Color

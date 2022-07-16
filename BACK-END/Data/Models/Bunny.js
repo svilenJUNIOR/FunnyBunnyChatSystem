@@ -1,34 +1,6 @@
-const mongoose = require('mongoose');
+var mongoose = require('mongoose');
 
-const bunnySchema = new mongoose.Schema({
-    Email: {
-        type: String,
-        required: true,
-    },
-    Password: {
-        type: String,
-        required: true,
-    },
-    HairColor: {
-        type: String,
-        required: true,
-    },
-    Breed: {
-        type: String,
-        required: true,
-    },
-    SignatureJoke: {
-        type: String,
-        required: true,
-    },
-    IsPremium: {
-        type: String,
-        required: true,
-    },
-    Name: {
-        type: String,
-        required: true,
-    },
+var bunnySchema = new mongoose.Schema({
     ChatName: {
         type: String,
     },
@@ -44,21 +16,16 @@ const bunnySchema = new mongoose.Schema({
     Gender: {
         type: Number,
     },
-    IsPremium: {
-        type: String,
-    },
     Bio: {
         type: String,
     },
-    Friends: [
-        {
-            type: mongoose.Types.ObjectId,
-            ref: 'Bunny'
-        }
-    ],
+    UserId: {
+        type: mongoose.Types.ObjectId,
+        ref: "User"
+    }
 });
 
-const Bunny = mongoose.model('Bunny', bunnySchema);
+var Bunny = mongoose.model('Bunny', bunnySchema);
 
 module.exports = Bunny;
 

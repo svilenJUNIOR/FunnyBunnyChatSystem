@@ -10,6 +10,7 @@ exports.Register = async (request, response) => {
     var SignatureJoke = request.body.SignatureJoke;
     var Password = request.body.Password;
     var HashedPassword = await hasher.hash(Password, 10);
+    var ChatName = "";
 
     var addedUser = Bunny.create({
         Email: Email,
@@ -19,6 +20,7 @@ exports.Register = async (request, response) => {
         SignatureJoke: SignatureJoke,
         Password: HashedPassword,
         IsPremium: false,
+        ChatName: ChatName,
     });
 
     return addedUser;
