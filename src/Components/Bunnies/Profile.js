@@ -19,7 +19,7 @@ export const Profile = (props) => {
 
     var SubmitHandler = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:4000/Bunny/Profile", values);
+        axios.post("http://localhost:4000/Bunny/Profile/" + props.me._id, values);
         navigate("/Bunny/Profile")
     } 
 
@@ -76,7 +76,7 @@ export const Profile = (props) => {
                                     <td><input type="text" placeholder="Enter Picture" name="Picture" required value={values.Picture} onChange={changeHandler} /></td>
 
                                     <td><label htmlFor="ChatName"><b>Chat Name: </b></label></td>
-                                    <td><input type="password" placeholder="Enter Chat Name" name="ChatName" required value={values.ChatName} onChange={changeHandler} /></td>
+                                    <td><input type="text" placeholder="Enter Chat Name" name="ChatName" required value={values.ChatName} onChange={changeHandler} /></td>
                                 </tr>
 
                                 <tr>
@@ -136,9 +136,7 @@ export const Profile = (props) => {
                                 <td><p>HairColor: {props.me.HairColor}</p></td>
                             </tr>
                             <tr>
-                                <td><p>LookingFor: {props.me.LookingFor}</p></td>
                                 <td><p>Email: {props.me.Email}</p></td>
-                                <td><p>Password: Can't show this one</p></td>
                                 <td><p>SignatureJoke: {props.me.SignatureJoke}</p></td>
                             </tr>
                             <tr>

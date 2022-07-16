@@ -12,4 +12,6 @@ router.get("/Profile", async (request, response) => {
     response.send(bunny);
 });
 
+router.post("/Profile/:Id", async (request, response) => await bunnyService.Promote(request, response));
+
 module.exports = router;
