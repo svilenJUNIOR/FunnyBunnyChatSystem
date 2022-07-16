@@ -6,4 +6,10 @@ router.get("/All", async (request, response) => {
     response.send(bunnies);
 });
 
+router.get("/Profile", async (request, response) => {
+    var id = "62d00e01168ff5fdd408e55c";
+    var bunny = await bunnyService.GetById(id);
+    response.send(bunny);
+});
+
 module.exports = router;

@@ -1,8 +1,7 @@
 import "./Styles/All.css"
-import { BunnyPartial } from "./BunnyPartial";
+import { BunnyPartial } from "../Partials/BunnyPartial";
 
 export const All = (props) => {
-
     return (
 
         <div>

@@ -13,23 +13,31 @@ import axios from "axios";
 function App() {
 
     var [bunnies, setBunnies] = useState([]);
+    var [me, setMyProfile] = useState([]);
 
     useEffect(() => {
         async function GetBunnies() {
             var response = await axios.get("http://localhost:4000/Bunny/All");
             setBunnies(response.data);
-            console.log(bunnies);
         }
         GetBunnies();
     }, []);
-    
+
+    useEffect(() => {
+        async function MyProfile() {
+            var response = await axios.get("http://localhost:4000/Bunny/Profile");
+            setMyProfile(response.data);
+        }
+        MyProfile();
+    }, []);
+
     return (
         <main>
             <NavBar />
             <div className="Content">
                 <Routes>
                     <Route path="/" element={<HomePage />} />
-                    <Route path="Bunny/Profile" element={<Profile />} />
+                    <Route path="Bunny/Profile" element={<Profile me={me} />} />
                     <Route path="Bunny/All" element={<All bunnies={bunnies} />} />
                     <Route path="Bunny/Chat" element={<ChatRoom />} />
                     <Route path="User/Register" element={<Register />} />

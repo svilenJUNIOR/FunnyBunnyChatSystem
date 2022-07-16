@@ -45,7 +45,16 @@ const bunnySchema = new mongoose.Schema({
     },
     IsPremium: {
         type: String,
-    }
+    },
+    Bio: {
+        type: String,
+    },
+    Friends: [
+        {
+            type: mongoose.Types.ObjectId,
+            ref: 'Bunny'
+        }
+    ],
 });
 
 const Bunny = mongoose.model('Bunny', bunnySchema);
