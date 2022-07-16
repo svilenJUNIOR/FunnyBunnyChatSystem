@@ -21,6 +21,10 @@ const bunnySchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    IsPremium: {
+        type: String,
+        required: true,
+    },
     Name: {
         type: String,
         required: true,
@@ -39,9 +43,6 @@ const bunnySchema = new mongoose.Schema({
     },
     Gender: {
         type: Number,
-    },
-    LookingFor: {
-        type: String,
     },
     IsPremium: {
         type: String,
