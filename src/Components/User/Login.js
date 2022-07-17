@@ -12,9 +12,15 @@ export const Login = () => {
     });
 
     var SubmitHandler = (e) => {
-        // e.preventDefault();
-        // axios.post("http://localhost:4000/User/Login", values);
-        // navigate("/");
+        e.preventDefault();
+        fetch("http://localhost:4000/User/Login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(values),
+        });
+        navigate("/");
     }
 
     var ChangeHandler = (e) => {
