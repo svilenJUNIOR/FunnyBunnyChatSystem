@@ -15,7 +15,7 @@ function App() {
 
     useEffect(() => {
         async function GetBunnies() {
-            var data = await fetch('http://localhost:4000/Bunny/All')
+            await fetch('http://localhost:4000/Bunny/All')
                 .then(response => {
                     return response.json();
                 }).then(bunnies => {
