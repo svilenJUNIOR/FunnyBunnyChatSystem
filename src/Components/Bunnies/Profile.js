@@ -17,9 +17,9 @@ export const Profile = (props) => {
     });
 
     var SubmitHandler = (e) => {
-        e.preventDefault();
-        axios.post("http://localhost:4000/Bunny/Profile/" + props.me._id, values);
-        navigate("/Bunny/Profile")
+        // e.preventDefault();
+        // axios.post("http://localhost:4000/Bunny/Profile/" + props.me._id, values);
+        // navigate("/Bunny/Profile")
     } 
 
     var changeHandler = (e) => {

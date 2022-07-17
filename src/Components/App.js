@@ -15,18 +15,23 @@ function App() {
 
     useEffect(() => {
         async function GetBunnies() {
-            var response = await axios.get("http://localhost:4000/Bunny/All");
-            setBunnies(response.data);
+            var data = await fetch('http://localhost:4000/Bunny/All')
+                .then(response => {
+                    return response.json();
+                }).then(bunnies => {
+                    setBunnies(bunnies);
+                    console.log(bunnies);
+                })
         }
         GetBunnies();
     }, []);
 
     useEffect(() => {
-        async function MyProfile() {
-            var response = await axios.get("http://localhost:4000/Bunny/Profile");
-            setMyProfile(response.data);
-        }
-        MyProfile();
+        // async function MyProfile() {
+        //     var response = await axios.get("http://localhost:4000/Bunny/Profile");
+        //     setMyProfile(response.data);
+        // }
+        // MyProfile();
     }, []);
 
     return (

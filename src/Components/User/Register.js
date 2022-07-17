@@ -24,9 +24,9 @@ export const Register = () => {
     }
 
     var SubmitHandler = (e) => {
-        e.preventDefault();
-        axios.post("http://localhost:4000/User/Register", values);
-        navigate("/User/Login");
+        // e.preventDefault();
+        // axios.post("http://localhost:4000/User/Register", values);
+        // navigate("/User/Login");
     }
 
     return (
