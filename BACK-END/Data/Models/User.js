@@ -25,12 +25,9 @@ var userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    Friends: [
-        {
-            type: mongoose.Types.ObjectId,
-            ref: 'Bunny'
-        }
-    ],
+    HasBunny: {
+        type: Boolean,
+    }
 });
 
 var User = mongoose.model("User", userSchema);

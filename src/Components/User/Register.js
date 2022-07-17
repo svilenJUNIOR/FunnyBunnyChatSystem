@@ -1,6 +1,5 @@
 import "./Styles/Register.css";
 import { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 export const Register = () => {
@@ -27,7 +26,7 @@ export const Register = () => {
     var SubmitHandler = (e) => {
         e.preventDefault();
         axios.post("http://localhost:4000/User/Register", values);
-        navigate("/");
+        navigate("/User/Login");
     }
 
     return (

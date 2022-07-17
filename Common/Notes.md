@@ -1,3 +1,15 @@
+ registration -> login attach token
+
+ create bunny
+ get the current user id
+ create the the bunny
+ link the bunny to the user
+
+ data path
+ app.js -> sends data -> component -> sends data -> contoller -> sends data -> service
+
+userController - DONE
+
 Bunny model
 - Chat name
 - Age

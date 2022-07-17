@@ -1,27 +1,34 @@
 var hasher = require("bcrypt");
-var Bunny = require("../../Data/Models/Bunny")
+var User = require("../../Data/Models/User")
+var jwt = require("jsonwebtoken");
+
+exports.GetById = async (Id) => await User.findById(Id).lean();
 
 exports.Register = async (request, response) => {
+    var password = await hasher.hash(request.body.Password, 10);
 
-    var Email = request.body.Email;
-    var HairColor = request.body.HairColor;
-    var Breed = request.body.Breed;
-    var Name = request.body.Name;
-    var SignatureJoke = request.body.SignatureJoke;
-    var Password = request.body.Password;
-    var HashedPassword = await hasher.hash(Password, 10);
-    var ChatName = "";
+    await User.create({
+        Breed: request.body.Breed,
+        Email: request.body.Email,
+        HairColor: request.body.HairColor,
+        Name: request.body.Name,
+        SignatureJoke: request.body.SignatureJoke,
+        Password: password,
+        HasBunny: false,
+    })
+};
 
-    var addedUser = Bunny.create({
-        Email: Email,
-        HairColor: HairColor,
-        Breed: Breed,
-        Name: Name,
-        SignatureJoke: SignatureJoke,
-        Password: HashedPassword,
-        IsPremium: false,
-        ChatName: ChatName,
+exports.Login = async (request, response) => {
+    var user = await User.findOne({Email: request.body.Email});
+
+    let token = new Promise((resolve, reject) => {
+        jwt.sign({ _id: user._id, username: user.Email }, "JWTSecret", { expiresIn: '2d' }, (err, token) => {
+            if (err) {
+                return reject(err);
+            }
+            resolve(token);
+        });
     });
 
-    return addedUser;
+    return token;
 };

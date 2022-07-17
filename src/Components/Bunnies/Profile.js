@@ -2,7 +2,6 @@ import "./Styles/Profile.css"
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
 export const Profile = (props) => {
 
@@ -31,7 +30,7 @@ export const Profile = (props) => {
         }));
     }
 
-    if (props.me.IsPremium == "false") {
+    if (!props.me.HasBunny) {
         return (
             <div>
                 <div className="NotPremiumSection">

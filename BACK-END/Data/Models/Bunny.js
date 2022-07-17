@@ -14,7 +14,7 @@ var bunnySchema = new mongoose.Schema({
         type: String,
     },
     Gender: {
-        type: Number,
+        type: String,
     },
     Bio: {
         type: String,
@@ -22,7 +22,13 @@ var bunnySchema = new mongoose.Schema({
     UserId: {
         type: mongoose.Types.ObjectId,
         ref: "User"
-    }
+    },
+    Friends: [
+        {
+            type: mongoose.Types.ObjectId,
+            ref: 'Bunny'
+        }
+    ],
 });
 
 var Bunny = mongoose.model('Bunny', bunnySchema);

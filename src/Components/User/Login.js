@@ -1,7 +1,10 @@
 import "./Styles/Login.css"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
+
+    var navigate = useNavigate();
 
     var [values, setValues] = useState({
         Email: "",
@@ -10,7 +13,8 @@ export const Login = () => {
 
     var SubmitHandler = (e) => {
         e.preventDefault();
-        console.log(values);
+        axios.post("http://localhost:4000/User/Login", values);
+        navigate("/");
     }
 
     var ChangeHandler = (e) => {

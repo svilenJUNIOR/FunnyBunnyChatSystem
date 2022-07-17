@@ -1,10 +1,25 @@
 var Bunny = require("../../Data/Models/Bunny");
+var User = require("../../Data/Models/User")
+var userService = require("../Services/UserService");
 
-exports.GetAll = async() => await Bunny.find().lean();
-exports.GetById = async(id) => await Bunny.findById(id).lean();
+exports.GetAll = async () => await Bunny.find().lean();
+exports.GetById = async (id) => await Bunny.findById(id);
 
-exports.Promote = async(request, response) => {
-    var bunny = await this.GetById("62d294e4b447a1fd43a147e9");
-    bunny.ChatName = await request.body.ChatName;
-    console.log(bunny);
+exports.Create = async (request, response) => {
+
+    var currentUserId = await request.params.Id;
+
+    await Bunny.create({
+        Age: request.body.Age,
+        Bio: request.body.Bio,
+        ChatName: request.body.ChatName,
+        Gender: request.body.Gender,
+        Picture: request.body.Picture,
+        Region: request.body.Region,
+        UserId: currentUserId
+    });
+
+    var update = { HasBunny: true };
+
+    await User.findByIdAndUpdate(currentUserId, update);
 };
