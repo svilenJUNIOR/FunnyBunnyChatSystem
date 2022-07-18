@@ -6,9 +6,6 @@ router.get("/All", async (request, response) => {
     response.send(bunnies);
 });
 
-router.get("/Profile", async (request, response) => {
-
-});
-
+router.post("/Create/:Id", async (request, response) => await bunnyService.Create(request, response))
 
 module.exports = router;

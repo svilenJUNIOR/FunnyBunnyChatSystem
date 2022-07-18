@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 var authService = require("../../Services/AuthService");
+var bunnyService = require("../../Services/BunnyService")
 
 export const Profile = (props) => {
 
@@ -30,7 +31,7 @@ export const Profile = (props) => {
 
             token.Email = result.Email;
             token.Id = result.Id;
-            token.isPremium = result.isPremium;
+            token.isPremium = true;
 
             console.log(token);
         };
@@ -47,14 +48,14 @@ export const Profile = (props) => {
     }
 
     var SubmitHandler = (e) => {
-
+        e.preventDefault();
+        bunnyService.CreateBunny(values, token.Id);
+        navigate("/Bunny/Profile")
     };
 
-    if (true) {
+    if (!token.isPremium) {
         return (
             <div>
-                <button onClick={SubmitHandler}>wefew</button>
-
                 <div className="NotPremiumSection">
                     <h1 className="t">My Profile</h1>
 
