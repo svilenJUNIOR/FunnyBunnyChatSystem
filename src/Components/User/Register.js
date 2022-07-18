@@ -23,10 +23,10 @@ export const Register = () => {
         }));
     }
 
-    var SubmitHandler = (e) => {
+    var SubmitHandler = async (e) => {
         e.preventDefault();
 
-        fetch("http://localhost:4000/User/Register", {
+        await fetch("http://localhost:4000/User/Register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

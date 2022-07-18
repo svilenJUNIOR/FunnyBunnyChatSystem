@@ -1,6 +1,7 @@
 import "./Styles/Login.css"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
+var authService = require("../../Services/AuthService");
 
 export const Login = () => {
 
@@ -11,24 +12,21 @@ export const Login = () => {
         Password: "",
     });
 
-    var SubmitHandler = (e) => {
-        e.preventDefault();
-        fetch("http://localhost:4000/User/Login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(values),
-        });
-        navigate("/");
-    }
-
     var ChangeHandler = (e) => {
         setValues(state => ({
             ...state,
             [e.target.name]: e.target.value,
         }));
     };
+
+    var SubmitHandler = async (e) => {
+        e.preventDefault();
+
+        await authService.Login(values)
+          
+        navigate("/");
+    }
+
     return (
         <div className="WraperLogin">
             <form method="POST" onSubmit={SubmitHandler}>
@@ -36,12 +34,12 @@ export const Login = () => {
                     <tbody>
                         <tr>
                             <td><label htmlFor="Email"><b>Email</b></label></td>
-                            <td><input type="text" placeholder="Enter Email" name="Email" required value={values.Email} onChange={ChangeHandler}/></td>
+                            <td><input type="text" placeholder="Enter Email" name="Email" required value={values.Email} onChange={ChangeHandler} /></td>
                         </tr>
 
                         <tr>
                             <td><label htmlFor="Password"><b>Password</b></label></td>
-                            <td><input type="password" placeholder="Enter Password" name="Password" required value={values.Password} onChange={ChangeHandler}/></td>
+                            <td><input type="password" placeholder="Enter Password" name="Password" required value={values.Password} onChange={ChangeHandler} /></td>
                         </tr>
 
                         <tr>

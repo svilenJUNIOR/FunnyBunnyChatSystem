@@ -19,16 +19,16 @@ exports.Register = async (request, response) => {
 };
 
 exports.Login = async (request, response) => {
-    var user = await User.findOne({Email: request.body.Email});
-console.log(user);
+    var user = await User.findOne({ Email: request.body.Email });
+
     let token = new Promise((resolve, reject) => {
-        jwt.sign({ _id: user._id, username: user.Email }, "JWTSecret", { expiresIn: '2d' }, (err, token) => {
+        jwt.sign({ _id: user._id, Email: user.Email }, "JWTSecret", { expiresIn: '2d' }, (err, token) => {
             if (err) {
                 return reject(err);
             }
             resolve(token);
         });
     });
-
+    response.send(user);
     return token;
 };
