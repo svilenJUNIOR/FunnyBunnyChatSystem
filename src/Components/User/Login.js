@@ -21,9 +21,7 @@ export const Login = () => {
 
     var SubmitHandler = async (e) => {
         e.preventDefault();
-
         await authService.Login(values)
-          
         navigate("/");
     }
 

@@ -29,6 +29,7 @@ exports.Login = async (request, response) => {
             resolve(token);
         });
     });
+    var jwtToken = await token;
+    response.cookie("IsAuth", jwtToken);
     response.send(user);
-    return token;
 };
