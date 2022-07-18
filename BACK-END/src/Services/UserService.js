@@ -2,6 +2,9 @@ var hasher = require("bcrypt");
 var User = require("../../Data/Models/User")
 var jwt = require("jsonwebtoken");
 
+var { promisify } = require("util");
+var jwtVerify = promisify(jwt.verify);
+
 exports.GetById = async (Id) => await User.findById(Id).lean();
 
 exports.Register = async (request, response) => {
@@ -22,7 +25,7 @@ exports.Login = async (request, response) => {
     var user = await User.findOne({ Email: request.body.Email });
 
     let token = new Promise((resolve, reject) => {
-        jwt.sign({ _id: user._id, Email: user.Email }, "JWTSecret", { expiresIn: '2d' }, (err, token) => {
+        jwt.sign({ Id: user._id, Email: user.Email, isPremium: user.HasBunny }, "JWTSecret", { expiresIn: '2d' }, (err, token) => {
             if (err) {
                 return reject(err);
             }
@@ -33,3 +36,15 @@ exports.Login = async (request, response) => {
     response.cookie("IsAuth", jwtToken);
     response.send(user);
 };
+
+exports.Verify = async (request, response) => {
+    var token = request.cookies["IsAuth"];
+
+    if (token) {
+        let decodedToken = await jwtVerify(token, "JWTSecret");
+
+        request.user = decodedToken;
+        response.locals.user = decodedToken;
+        response.send(decodedToken);
+    }
+}

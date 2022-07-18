@@ -1,7 +1,8 @@
 import "./Styles/Profile.css"
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+var authService = require("../../Services/AuthService");
 
 export const Profile = (props) => {
 
@@ -16,9 +17,10 @@ export const Profile = (props) => {
         Bio: "",
     });
 
-    var SubmitHandler = (e) => {
-       
-    } 
+    useEffect(() => {
+        var result = authService.Verify()
+        console.log(result)
+    }, []);
 
     var changeHandler = (e) => {
 
@@ -28,9 +30,15 @@ export const Profile = (props) => {
         }));
     }
 
-    if (!props.me.HasBunny) {
+    var SubmitHandler = (e) => {
+
+    };
+
+    if (true) {
         return (
             <div>
+                <button onClick={SubmitHandler}>wefew</button>
+
                 <div className="NotPremiumSection">
                     <h1 className="t">My Profile</h1>
 

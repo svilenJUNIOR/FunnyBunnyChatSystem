@@ -8,6 +8,12 @@ export var Login = async (values) => {
         },
         body: JSON.stringify(values),
     })
-    .then(response => response.json())
-    .then(data => console.log(data))
+        .then(response => response.json())
+        .then(data => console.log(data))
+}
+
+export var Verify = async () => {
+    return await fetch('http://localhost:4000/User/Verify', {credentials: "include"})
+        .then(response => response.json())
+        .then(token => {return token})
 }

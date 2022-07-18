@@ -8,4 +8,6 @@ router.post("/Login", async (request, response) => await userService.Login(reque
 
 router.post("/Logout", async (request, response) => await userService.LogOut(request, response));
 
+router.get("/Verify", async (request, response) => await userService.Verify(request, response));
+
 module.exports = router;
