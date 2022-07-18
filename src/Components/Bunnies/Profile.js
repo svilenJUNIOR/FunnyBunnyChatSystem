@@ -8,6 +8,12 @@ export const Profile = (props) => {
 
     var navigate = useNavigate();
 
+    var [token, setToken] = useState({
+        Email: "",
+        Id: "",
+        isPremium: "",
+    });
+
     var [values, setValues] = useState({
         Picture: "",
         ChatName: "",
@@ -17,9 +23,19 @@ export const Profile = (props) => {
         Bio: "",
     });
 
+
     useEffect(() => {
-        var result = authService.Verify()
-        console.log(result)
+        async function getToken() {
+            var result = await authService.Verify();
+
+            token.Email = result.Email;
+            token.Id = result.Id;
+            token.isPremium = result.isPremium;
+
+            console.log(token);
+        };
+
+        getToken();
     }, []);
 
     var changeHandler = (e) => {
