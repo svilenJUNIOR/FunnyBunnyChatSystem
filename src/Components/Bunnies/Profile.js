@@ -24,14 +24,13 @@ export const Profile = (props) => {
         Bio: "",
     });
 
-
     useEffect(() => {
         async function getToken() {
             var result = await authService.Verify();
 
             token.Email = result.Email;
             token.Id = result.Id;
-            token.isPremium = true;
+            token.isPremium = result.isPremium;
 
             console.log(token);
         };
@@ -47,9 +46,16 @@ export const Profile = (props) => {
         }));
     }
 
-    var SubmitHandler = (e) => {
+    var SubmitHandler = async (e) => {
         e.preventDefault();
+
+        var result = await authService.ChangeToken();
+        token.isPremium = result.isPremium;
+        // take the user by id
+        // get the user info
+        // create the bunny
         bunnyService.CreateBunny(values, token.Id);
+        // render html with user and bunny info
         navigate("/Bunny/Profile")
     };
 
@@ -141,12 +147,12 @@ export const Profile = (props) => {
                 <div className="Premium">
 
                     <div className="Image">
-                        <img className="ProfilePic" src={props.me.Picture}></img>
+                        <img className="ProfilePic" src={values.Picture}></img>
                     </div>
                     <table >
                         <tbody>
                             <tr>
-                                <td><p>Name: {props.me.Name}</p></td>
+                                <td><p>Name: {values.Name}</p></td>
                                 <td><p>ChatName: {props.me.ChatName}</p></td>
                                 <td><p>Breed: {props.me.Breed}</p></td>
                                 <td><p>Age: {props.me.Age}</p></td>

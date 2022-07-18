@@ -10,4 +10,6 @@ router.post("/Logout", async (request, response) => await userService.LogOut(req
 
 router.get("/Verify", async (request, response) => await userService.Verify(request, response));
 
+router.get("/ChangeToken", async (request, response) => await userService.ChangeToken(request, response));
+
 module.exports = router;
