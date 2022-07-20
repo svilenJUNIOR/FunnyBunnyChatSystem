@@ -42,6 +42,9 @@ exports.Verify = async (request, response) => {
 
     if (token) {
         let decodedToken = await jwtVerify(token, "JWTSecret");
+        
+        var user = await this.GetById(decodedToken.Id);
+        decodedToken.isPremium = user.HasBunny;
 
         request.user = decodedToken;
         response.locals.user = decodedToken;
@@ -49,14 +52,8 @@ exports.Verify = async (request, response) => {
     }
 }
 
-exports.ChangeToken = async (request, response) => {
-    var token = request.cookies["IsAuth"];
-    var decodedToken = await jwtVerify(token, "JWTSecret");
-
-    var user = await this.GetById(decodedToken.Id);
-    decodedToken.isPremium = user.HasBunny;
-  
-    request.user = decodedToken;
-    response.locals.user = decodedToken;
-    response.send(decodedToken);
+exports.TakeById = async (request, response) => {
+    var user = await this.GetById(request.body.Id);
+    user.HasBunny = true;
+    response.send(user)
 }

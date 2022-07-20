@@ -1,6 +1,5 @@
 var router = require("express").Router();
 var userService = require("../Services/UserService")
-var Cookies = require("js-cookie")
 
 router.post("/Register", async (request, response) => await userService.Register(request, response));
 
@@ -10,6 +9,8 @@ router.post("/Logout", async (request, response) => await userService.LogOut(req
 
 router.get("/Verify", async (request, response) => await userService.Verify(request, response));
 
-router.get("/ChangeToken", async (request, response) => await userService.ChangeToken(request, response));
+router.post("/ChangeToken", async (request, response) => await userService.ChangeToken(request, response));
+
+router.post("/TakeById", async (request, response) => await userService.TakeById(request, response));
 
 module.exports = router;

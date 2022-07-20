@@ -9,17 +9,24 @@ export var Login = async (values) => {
         body: JSON.stringify(values),
     })
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => { return data })
 }
 
 export var Verify = async () => {
-    return await fetch('http://localhost:4000/User/Verify', {credentials: "include"})
+    return await fetch('http://localhost:4000/User/Verify', { credentials: "include" })
         .then(response => response.json())
-        .then(token => {return token})
+        .then(token => { return token })
 }
 
-export var ChangeToken = async () => {
-    return await fetch('http://localhost:4000/User/ChangeToken', {credentials: "include"})
+export var ReturnUser = async (values) => {
+    return await fetch('http://localhost:4000/User/TakeById', {
+        credentials: "include",
+        method: "POST",
+        headers: {
+            "content-type": "application/json"
+        },
+        body: JSON.stringify(values)
+    })
         .then(response => response.json())
-        .then(token => {return token})
+        .then(user => { return user })
 }

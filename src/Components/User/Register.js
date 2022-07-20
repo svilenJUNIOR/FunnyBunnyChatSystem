@@ -34,7 +34,7 @@ export const Register = () => {
             body: JSON.stringify(values)
         });
 
-        navigate("/User/Login");
+        navigate("/Login");
     }
 
     return (

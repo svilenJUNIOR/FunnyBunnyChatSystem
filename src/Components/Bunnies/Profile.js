@@ -8,22 +8,8 @@ var bunnyService = require("../../Services/BunnyService")
 export const Profile = (props) => {
 
     var navigate = useNavigate();
-
-    var [token, setToken] = useState({
-        Email: "",
-        Id: "",
-        isPremium: "",
-    });
-
-    var [values, setValues] = useState({
-        Picture: "",
-        ChatName: "",
-        Age: "",
-        Region: "",
-        Gender: "",
-        Bio: "",
-    });
-
+    
+    // gets the jwt token from the cookie
     useEffect(() => {
         async function getToken() {
             var result = await authService.Verify();
@@ -38,6 +24,17 @@ export const Profile = (props) => {
         getToken();
     }, []);
 
+    // sets the values from the form to the bunny
+    var [bunnyInfo, setValues] = useState({
+        Picture: "",
+        ChatName: "",
+        Age: "",
+        Region: "",
+        Gender: "",
+        Bio: "",
+    });
+
+    // takes the values from the form 
     var changeHandler = (e) => {
 
         setValues(state => ({
@@ -46,18 +43,43 @@ export const Profile = (props) => {
         }));
     }
 
+    var [token, setToken] = useState({
+        Email: "",
+        Id: "",
+        isPremium: "",
+    });
+
+    var personalInfo={
+        Picture: bunnyInfo.Picture,
+        ChatName: bunnyInfo.ChatName,
+        Age: bunnyInfo.Age,
+        Region: bunnyInfo.Region,
+        Gender: bunnyInfo.Gender,
+        Bio: bunnyInfo.Bio,
+        Email: "",
+        Name: "",
+        Breed: "",
+        HairColor: "",
+        SignatureJoke: "",
+    };
+
+    // on becoming premium member the token changes
+    // the premium page is rendered and the bunny is created
     var SubmitHandler = async (e) => {
         e.preventDefault();
 
-        var result = await authService.ChangeToken();
-        token.isPremium = result.isPremium;
-        // take the user by id
-        // get the user info
-        // create the bunny
-        bunnyService.CreateBunny(values, token.Id);
-        // render html with user and bunny info
+        var user = await authService.ReturnUser(token);
+
+        
+        personalInfo.Email = user.Email;
+        personalInfo.Name = user.Name;
+        personalInfo.HairColor = user.HairColor;
+        personalInfo.SignatureJoke = user.SignatureJoke;
+
+        await bunnyService.CreateBunny(bunnyInfo, token.Id);
         navigate("/Bunny/Profile")
     };
+   
 
     if (!token.isPremium) {
         return (
@@ -101,25 +123,25 @@ export const Profile = (props) => {
                             <tbody>
                                 <tr>
                                     <td><label htmlFor="Picture"><b>Profile Picture: </b></label></td>
-                                    <td><input type="text" placeholder="Enter Picture" name="Picture" required value={values.Picture} onChange={changeHandler} /></td>
+                                    <td><input type="text" placeholder="Enter Picture" name="Picture" required value={personalInfo.Picture} onChange={changeHandler} /></td>
 
                                     <td><label htmlFor="ChatName"><b>Chat Name: </b></label></td>
-                                    <td><input type="text" placeholder="Enter Chat Name" name="ChatName" required value={values.ChatName} onChange={changeHandler} /></td>
+                                    <td><input type="text" placeholder="Enter Chat Name" name="ChatName" required value={personalInfo.ChatName} onChange={changeHandler} /></td>
                                 </tr>
 
                                 <tr>
                                     <td><label htmlFor="Age"><b>Age: </b></label></td>
-                                    <td><input type="text" placeholder="Enter Age" name="Age" required value={values.Age} onChange={changeHandler} /></td>
+                                    <td><input type="text" placeholder="Enter Age" name="Age" required value={bunnyInfo.Age} onChange={changeHandler} /></td>
 
                                     <td><label htmlFor="Region"><b>Region: </b></label></td>
-                                    <td><input type="Text" placeholder="Enter Your Prefered Habitat" name="Region" required value={values.Habitat} onChange={changeHandler} /></td>
+                                    <td><input type="Text" placeholder="Enter Your Prefered Habitat" name="Region" required value={bunnyInfo.Habitat} onChange={changeHandler} /></td>
                                 </tr>
 
                                 <tr>
 
                                     <td><label htmlFor="Gender"><b>Gender: </b></label></td>
                                     <td>
-                                        <select className="Gender" name="Gender" value={values.Gender} onChange={changeHandler}>
+                                        <select className="Gender" name="Gender" value={bunnyInfo.Gender} onChange={changeHandler}>
                                             <option value="Default" defaultValue>Not Selected</option>
                                             <option value="Male">Male</option>
                                             <option value="Female">Female</option>
@@ -127,7 +149,7 @@ export const Profile = (props) => {
                                     </td>
 
                                     <td><label htmlFor="Bio"><b>About Me: </b></label></td>
-                                    <td><input type="text" placeholder="Enter Some Information About You" name="Bio" required value={values.Bio} onChange={changeHandler} /></td>
+                                    <td><input type="text" placeholder="Enter Some Information About You" name="Bio" required value={bunnyInfo.Bio} onChange={changeHandler} /></td>
                                 </tr>
 
                                 <tr>
@@ -141,31 +163,32 @@ export const Profile = (props) => {
         )
     }
     else {
+        console.log(bunnyInfo)
         return (
             <div>
                 <h1>My Profile</h1>
                 <div className="Premium">
 
                     <div className="Image">
-                        <img className="ProfilePic" src={values.Picture}></img>
+                        <img className="ProfilePic" src={personalInfo.Picture}></img>
                     </div>
                     <table >
                         <tbody>
                             <tr>
-                                <td><p>Name: {values.Name}</p></td>
-                                <td><p>ChatName: {props.me.ChatName}</p></td>
-                                <td><p>Breed: {props.me.Breed}</p></td>
-                                <td><p>Age: {props.me.Age}</p></td>
+                                <td><p>Name: {personalInfo.Name}</p></td>
+                                <td><p>ChatName: {personalInfo.ChatName}</p></td>
+                                <td><p>Breed: {personalInfo.Breed}</p></td>
+                                <td><p>Age: {personalInfo.Age}</p></td>
                             </tr>
                             <tr>
-                                <td><p>Picture: {props.me.Picture}</p></td>
-                                <td><p>Region: {props.me.Region}</p></td>
-                                <td><p>Gender: {props.me.Gender}</p></td>
-                                <td><p>HairColor: {props.me.HairColor}</p></td>
+                                <td><p>Picture: {personalInfo.Picture}</p></td>
+                                <td><p>Region: {personalInfo.Region}</p></td>
+                                <td><p>Gender: {personalInfo.Gender}</p></td>
+                                <td><p>HairColor: {personalInfo.HairColor}</p></td>
                             </tr>
                             <tr>
-                                <td><p>Email: {props.me.Email}</p></td>
-                                <td><p>SignatureJoke: {props.me.SignatureJoke}</p></td>
+                                <td><p>Email: {personalInfo.Email}</p></td>
+                                <td><p>SignatureJoke: {personalInfo.SignatureJoke}</p></td>
                             </tr>
                             <tr>
                                 <td colspan={4}><NavLink to="/Edit"><button className="EditButton">Edit</button></NavLink></td>
@@ -175,7 +198,7 @@ export const Profile = (props) => {
                 </div >
 
                 <div className="AboutMe">
-                    <h2>About Me</h2>{props.me.Bio}
+                    <h2>About Me</h2>{personalInfo.Bio}
                 </div>
 
 
