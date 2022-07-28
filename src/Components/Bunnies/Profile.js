@@ -86,9 +86,7 @@ export const Profile = (props) => {
                         <li>Region (The habitat you prefer)</li>
                         <li>Gender</li>
                         <li>Bio section</li>
-                        <li>Having a list of chat friends (Max: 5)</li>
-                        <li>Be visible on the main page when active</li>
-
+                        
                     </ol>
 
                 </div >

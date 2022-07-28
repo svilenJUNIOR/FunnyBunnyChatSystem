@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-export var BunnyPartial = ({Picture, ChatName, Age, Region, Gender}) => {
+export var BunnyPartial = ({Picture, ChatName, Age, Region, Gender, Bio}) => {
     return(
         <tr>
         <td><img src={Picture}></img></td>
@@ -8,6 +8,7 @@ export var BunnyPartial = ({Picture, ChatName, Age, Region, Gender}) => {
         <td>Age: {Age}</td>
         <td>Region: {Region}</td>
         <td>Gender: {Gender}</td>
+        <td>Bio: {Bio}</td>
         <td><NavLink to="/Chat"><button type="submit">Chat</button></NavLink></td>
     </tr>
     )

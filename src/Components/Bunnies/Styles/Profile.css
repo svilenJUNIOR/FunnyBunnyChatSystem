@@ -87,9 +87,9 @@ h1.t {
 }
 
 div.NotPremiumSection {
-    margin-top: 15px;
+    margin-top: 5px;
     margin-left: 25px;
-    height: 750px;
+    height: 680px;
     width: 700px;
     text-align: left;
     color: black;
@@ -132,11 +132,33 @@ ol.MorePersonal li {
     width: 450px;
 }
 
-div.BecomePremiumForm{
+table.PremiumTable {
+    background-color:rgba(255, 255, 255, 0.3);
+    height: 680px;
+    width: 700px;
     margin-left: 750px;
-    margin-right: 5px;
-    margin-top: -750px;
-    width: 750px;
-    height: 750px;
-    background-color: green;
+    margin-top: -550px;
+    box-shadow: rgba(0, 0, 0, 1.56) 10px 22px 70px 20px;
+}
+
+table.PremiumTable, tr {
+    height: 15px;
+}
+
+table.PremiumTable, td {
+    width: 50px;
+}
+
+table.PremiumTable, th, td {
+    border: 1px solid black;
+}
+
+table.PremiumTable button {
+    width: 99%;
+    height: 99%;
+    font-size: 50px;
+    background-color: rgba(255,255,255, 0.6);
+    margin-left: 0px;
+    margin-bottom: 0px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
