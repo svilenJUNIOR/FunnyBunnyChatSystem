@@ -9,7 +9,7 @@ router.post("/Logout", async (request, response) => await userService.LogOut(req
 
 router.get("/ChangeToken", async (request, response) => await userService.ChangeToken(request, response));
 
-//router.post("/ChangeToken", async (request, response) => await userService.ChangeToken(request, response));
+router.get("/ReturnToken", async (request, response) => await userService.ReturnToken(request, response));
 
 router.post("/TakeById", async (request, response) => await userService.TakeById(request, response));
 

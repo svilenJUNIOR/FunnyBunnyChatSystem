@@ -59,6 +59,13 @@ exports.ChangeToken = async (request, response) => {
     }
 }
 
+exports.ReturnToken = async (request, response) => {
+    var token = request.cookies["IsAuth"];
+    let decodedToken = await jwtVerify(token, "JWTSecret");
+
+    response.send(decodedToken);
+};
+
 exports.TakeById = async (request, response) => {
     var user = await this.GetById(request.body.Id);
     user.HasBunny = true;

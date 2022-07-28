@@ -1,5 +1,5 @@
-export var CreateBunny = async (values, userId) => {
-    return await fetch("http://localhost:4000/Bunny/Create/" + userId, {
+export var CreateBunny = async (values) => {
+    return await fetch(`http://localhost:4000/Bunny/Create`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

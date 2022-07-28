@@ -30,3 +30,9 @@ export var ReturnUser = async (values) => {
         .then(response => response.json())
         .then(user => { return user })
 }
+
+export var GetToken = async () => {
+    return await fetch('http://localhost:4000/User/ReturnToken', { credentials: "include" })
+        .then(response =>  response.json())
+        .then(token => { return token })
+}

@@ -9,26 +9,12 @@ export const Profile = (props) => {
 
     var navigate = useNavigate();
 
-    var token = {
-        Email: "",
-        Id: "",
-        isPremium: "",
-    };
-
-    // gets the jwt token from the cookie
     useEffect(() => {
-        async function getToken() {
-            var result = await authService.ChangeToken();
+        var data =  authService.GetToken();
+        setToken(data);
+    }, [token]);
 
-            token.Email = result.Email;
-            token.Id = result.Id;
-            token.isPremium = result.isPremium;
-
-            console.log(token);
-        };
-
-        getToken();
-    }, []);
+    var [token, setToken] = useState([]);
 
     var [bunnyInfo, setValues] = useState({
         Picture: "",
@@ -37,6 +23,7 @@ export const Profile = (props) => {
         Region: "",
         Gender: "",
         Bio: "",
+        UserId: "",
     });
 
     var changeHandler = (e) => {
@@ -63,7 +50,10 @@ export const Profile = (props) => {
 
     var SubmitHandler = async (e) => {
         e.preventDefault();
-        await bunnyService.CreateBunny(bunnyInfo, token.Id);
+        var result = await token;
+        bunnyInfo.UserId = result.Id;
+        await authService.ChangeToken();
+        await bunnyService.CreateBunny(bunnyInfo);
     };
 
 

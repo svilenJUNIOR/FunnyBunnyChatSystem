@@ -5,8 +5,7 @@ exports.GetAll = async () => await Bunny.find().lean();
 exports.GetById = async (id) => await Bunny.findById(id);
 
 exports.Create = async (request, response) => {
-    var currentUserId = await request.params.Id;
-
+    
     var bunny = await Bunny.create({
         Age: Number(request.body.Age),
         Bio: request.body.Bio,
@@ -14,11 +13,11 @@ exports.Create = async (request, response) => {
         Gender: request.body.Gender,
         Picture: request.body.Picture,
         Region: request.body.Region,
-        UserId: currentUserId
+        UserId: request.body.UserId,
     });
 
     var update = { HasBunny: true };
-    await User.findByIdAndUpdate(currentUserId, update);
+    await User.findByIdAndUpdate(request.body.UserId, update);
 
     response.send(bunny);
 };
