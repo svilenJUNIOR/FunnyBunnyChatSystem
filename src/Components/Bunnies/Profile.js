@@ -8,11 +8,17 @@ var bunnyService = require("../../Services/BunnyService")
 export const Profile = (props) => {
 
     var navigate = useNavigate();
-    
+
+    var token = {
+        Email: "",
+        Id: "",
+        isPremium: "",
+    };
+
     // gets the jwt token from the cookie
     useEffect(() => {
         async function getToken() {
-            var result = await authService.Verify();
+            var result = await authService.ChangeToken();
 
             token.Email = result.Email;
             token.Id = result.Id;
@@ -24,7 +30,6 @@ export const Profile = (props) => {
         getToken();
     }, []);
 
-    // sets the values from the form to the bunny
     var [bunnyInfo, setValues] = useState({
         Picture: "",
         ChatName: "",
@@ -34,7 +39,6 @@ export const Profile = (props) => {
         Bio: "",
     });
 
-    // takes the values from the form 
     var changeHandler = (e) => {
 
         setValues(state => ({
@@ -43,13 +47,7 @@ export const Profile = (props) => {
         }));
     }
 
-    var [token, setToken] = useState({
-        Email: "",
-        Id: "",
-        isPremium: "",
-    });
-
-    var personalInfo={
+    var personalInfo = {
         Picture: bunnyInfo.Picture,
         ChatName: bunnyInfo.ChatName,
         Age: bunnyInfo.Age,
@@ -63,23 +61,11 @@ export const Profile = (props) => {
         SignatureJoke: "",
     };
 
-    // on becoming premium member the token changes
-    // the premium page is rendered and the bunny is created
     var SubmitHandler = async (e) => {
         e.preventDefault();
-
-        var user = await authService.ReturnUser(token);
-
-        
-        personalInfo.Email = user.Email;
-        personalInfo.Name = user.Name;
-        personalInfo.HairColor = user.HairColor;
-        personalInfo.SignatureJoke = user.SignatureJoke;
-
         await bunnyService.CreateBunny(bunnyInfo, token.Id);
-        navigate("/Bunny/Profile")
     };
-   
+
 
     if (!token.isPremium) {
         return (
@@ -163,7 +149,6 @@ export const Profile = (props) => {
         )
     }
     else {
-        console.log(bunnyInfo)
         return (
             <div>
                 <h1>My Profile</h1>

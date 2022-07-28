@@ -12,8 +12,8 @@ export var Login = async (values) => {
         .then(data => { return data })
 }
 
-export var Verify = async () => {
-    return await fetch('http://localhost:4000/User/Verify', { credentials: "include" })
+export var ChangeToken = async () => {
+    return await fetch('http://localhost:4000/User/ChangeToken', { credentials: "include" })
         .then(response => response.json())
         .then(token => { return token })
 }

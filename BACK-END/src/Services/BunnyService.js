@@ -1,6 +1,5 @@
 var Bunny = require("../../Data/Models/Bunny");
 var User = require("../../Data/Models/User")
-var userService = require("../Services/UserService");
 
 exports.GetAll = async () => await Bunny.find().lean();
 exports.GetById = async (id) => await Bunny.findById(id);

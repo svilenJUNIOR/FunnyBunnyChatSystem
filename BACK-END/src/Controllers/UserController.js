@@ -7,9 +7,9 @@ router.post("/Login", async (request, response) => await userService.Login(reque
 
 router.post("/Logout", async (request, response) => await userService.LogOut(request, response));
 
-router.get("/Verify", async (request, response) => await userService.Verify(request, response));
+router.get("/ChangeToken", async (request, response) => await userService.ChangeToken(request, response));
 
-router.post("/ChangeToken", async (request, response) => await userService.ChangeToken(request, response));
+//router.post("/ChangeToken", async (request, response) => await userService.ChangeToken(request, response));
 
 router.post("/TakeById", async (request, response) => await userService.TakeById(request, response));
 

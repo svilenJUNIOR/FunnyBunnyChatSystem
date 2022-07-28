@@ -1,8 +1,3 @@
-change isPremium = true;
-reload same page;
-get the bunny by id;
-render html;
-
 Bunny model
 - Chat name
 - Age
@@ -18,7 +13,7 @@ User model
 - Signature joke
 - Name
 
-The rest are required if the user (the bunny) whants his profile to be shown in the all page
+The rest are required if the user (the bunny) wants his profile to be shown in the all page
 
 /------------------------------------------------------------------------------------/
 
@@ -42,5 +37,4 @@ if the bunny is premium it shows form for editing personal info
 /------------------------------------------------------------------------------------/
  TODO:
 
-Add index page
 Download All Images

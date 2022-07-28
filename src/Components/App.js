@@ -19,7 +19,6 @@ function App() {
                     return response.json();
                 }).then(bunnies => {
                     setBunnies(bunnies);
-                    console.log(bunnies);
                 })
         }
         GetBunnies();
