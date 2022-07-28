@@ -8,7 +8,7 @@ export const All = (props) => {
             <h1>Don't be shy and check out all available bunnies</h1>
 
             <table className="AllBunnies">
-                <tbody>
+                <tbody className="TableBody">
                     {props.bunnies.map(bunny => <BunnyPartial key={bunny._id} {...bunny}/>)}
                 </tbody>
             </table>

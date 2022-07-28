@@ -1,12 +1,13 @@
-table {
-    margin-left: 10px;
+table.AllBunnies {
+    margin-left: 50px;
     margin-top: 120px;
 }
 
 table.AllBunnies td {
     background-color:  bisque;
     text-align: center;
-    font-size: x-large;
+    font-size: xx-large;
+    width: 200px;
 }
 
 table.AllBunnies button {
@@ -16,8 +17,8 @@ table.AllBunnies button {
 }
 
 img {
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    height: 100%;
 }
 
 h1 {
