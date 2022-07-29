@@ -3,9 +3,11 @@ div.Image {
 }
 
 div.Premium {
-    background-color: bisque;
+    background-color:rgba(255, 255, 255, 0.3);
+    box-shadow: rgba(0, 0, 0, 1.56) 10px 22px 70px 20px;
+    margin-top: -50px;
     width: 1200px;
-    height: 600px;
+    height: 570px;
     margin-left: 150px;
 }
 
@@ -16,26 +18,26 @@ div.Info {
 }
 
 div.AboutMe {
-    margin-top: -20px;
-    margin-left: 20px;
+    margin-top: -293px;
+    margin-left: 150px;
     width: 630px;
-    height: 250px;
-    font-size: x-large;
+    height: 265px;
+    font-size: xx-large;
     word-wrap: break-word;
+    text-align: center;
+    font-weight: bold;
 }
 
 div.Friends {
-    margin-left: 700px;
-    width: 400px;
-    height: 250px;
-    margin-top: -250px;
+    margin-left: 780px;
+    width: 570px;
+    height: 265px;
+    margin-top: -290px;
 }
 
 img.ProfilePic {
     width: 300px;
-    height: 250px;
-    margin-top: 20px;
-    margin-left: 20px;
+    height: 300px;
 }
 
 h1.ProfileHeading {
@@ -50,6 +52,15 @@ h2 {
 
 h2.PersonalInfo {
     margin-top: 20px
+}
+
+table.ProfileInfoTable {
+    margin-left: 25%;
+    margin-top: -304px;
+    width: 900px;
+    text-align: center;
+    font-size: 27px;
+    font-weight: bold;
 }
 
 table.InfoTable {

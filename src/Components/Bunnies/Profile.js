@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 var authService = require("../../Services/AuthService");
 var bunnyService = require("../../Services/BunnyService")
+var FriendPartial = require("../Partials/FriendPartial");
 
 export const Profile = (props) => {
 
@@ -152,25 +153,26 @@ export const Profile = (props) => {
                         <div className="Image">
                             <img className="ProfilePic" src={bunny.Picture}></img>
                         </div>
-                        <table >
+                        <table  className="ProfileInfoTable">
                             <tbody>
                                 <tr>
-                                    <td><p>Name: {user.Name}</p></td>
-                                    <td><p>ChatName: {bunny.ChatName}</p></td>
-                                    <td><p>Breed: {user.Breed}</p></td>
-                                    <td><p>Age: {bunny.Age}</p></td>
+                                    <td>Email: {user.Email}</td>
+                                    <td>Name: {user.Name}</td>
+                                    <td>Signature Joke: {user.SignatureJoke}</td>
+
                                 </tr>
                                 <tr>
-                                    <td><p>Region: {bunny.Region}</p></td>
-                                    <td><p>Gender: {bunny.Gender}</p></td>
-                                    <td><p>HairColor: {user.HairColor}</p></td>
+                                    <td>Region: {bunny.Region}</td>
+                                    <td>Gender: {bunny.Gender}</td>
+                                    <td>Age: {bunny.Age}</td>
                                 </tr>
                                 <tr>
-                                    <td><p>Email: {user.Email}</p></td>
-                                    <td><p>SignatureJoke: {user.SignatureJoke}</p></td>
+                                    <td>Hair Color: {user.HairColor}</td>
+                                    <td>Chat Name: {bunny.ChatName}</td>
+                                    <td>Breed: {user.Breed}</td>
                                 </tr>
                                 <tr>
-                                    <td colspan={4}><NavLink to="/Edit"><button className="EditButton">Edit</button></NavLink></td>
+                                    <td colspan={4}><NavLink to="/Bunny/Edit"><button className="EditButton">Edit</button></NavLink></td>
                                 </tr>
                             </tbody>
                         </table >
@@ -184,9 +186,9 @@ export const Profile = (props) => {
                     <div className="Friends">
                         <h2 className="Friends">My Friends</h2>
                         <table className="FriendsTable">
-                            {/* <tbody>
-                            {props.me.Friends.map(fr => <FriendPartial key={fr._id} {...fr} />)}
-                        </tbody> */}
+                            <tbody>
+                                {bunny.Friends.map(fr => <FriendPartial key={fr._id} {...fr} />)}
+                            </tbody>
                         </table>
                     </div>
 

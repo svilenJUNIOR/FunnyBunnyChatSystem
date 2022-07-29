@@ -9,7 +9,7 @@ export var BunnyPartial = ({Picture, ChatName, Age, Region, Gender, Bio}) => {
         <td>Region: {Region}</td>
         <td>Gender: {Gender}</td>
         <td>Bio: {Bio}</td>
-        <td><NavLink to="/Chat"><button type="submit">Chat</button></NavLink></td>
+        <td><NavLink to="/Bunny/Chat"><button type="submit">Chat</button></NavLink></td>
     </tr>
     )
    
