@@ -171,7 +171,7 @@ export const Profile = (props) => {
                                 <td>Breed: {user.Breed}</td>
                             </tr>
                             <tr>
-                                <td colspan={4}><NavLink to="/Bunny/Edit"><button className="EditButton">Edit</button></NavLink></td>
+                                <td colspan={4}><NavLink to="/Bunny/Edit"><button className="EditButton" {...user}>Edit</button></NavLink></td>
                             </tr>
                         </tbody>
                     </table >

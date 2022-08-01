@@ -1,6 +1,13 @@
 import "./Styles/ChatRoom.css"
+import { useLocation } from "react-router-dom"
 
-export const ChatRoom = () => {
+export const ChatRoom = (value) => {
+
+    var location = useLocation();
+
+   console.log(location.state.ChatName);
+
+
     return (
         <div>
             <div className="Chat">

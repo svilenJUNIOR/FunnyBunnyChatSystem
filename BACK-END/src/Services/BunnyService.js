@@ -1,9 +1,9 @@
 var Bunny = require("../../Data/Models/Bunny");
 var User = require("../../Data/Models/User")
+var hasher = require("bcrypt");
 
 var jwt = require("jsonwebtoken");
 var { promisify } = require("util");
-const { STATUS_CODES } = require("http");
 var jwtVerify = promisify(jwt.verify);
 
 exports.GetAll = async () => await Bunny.find().lean();
@@ -44,7 +44,7 @@ exports.Edit = async (request, response) => {
 
     var newUserData = {
         Email: request.body.Email,
-        Password: request.body.Password,
+        Password: await hasher.hash(request.body.Password, 10),
         Name: request.body.Name,
         HairColor: request.body.HairColor,
         Breed: request.body.Breed,
