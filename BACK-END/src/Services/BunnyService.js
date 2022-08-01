@@ -3,6 +3,7 @@ var User = require("../../Data/Models/User")
 
 var jwt = require("jsonwebtoken");
 var { promisify } = require("util");
+const { STATUS_CODES } = require("http");
 var jwtVerify = promisify(jwt.verify);
 
 exports.GetAll = async () => await Bunny.find().lean();
@@ -40,6 +41,28 @@ exports.ProfileData = async (request, response) => {
 exports.Edit = async (request, response) => {
     var token = request.cookies["IsAuth"];
     let decodedToken = await jwtVerify(token, "JWTSecret");
-    
-    console.log(decodedToken)
+
+    var newUserData = {
+        Email: request.body.Email,
+        Password: request.body.Password,
+        Name: request.body.Name,
+        HairColor: request.body.HairColor,
+        Breed: request.body.Breed,
+        SignatureJoke: request.body.SignatureJoke,
+    }
+
+    var newBunnyData = {
+        ChatName: request.body.ChatName,
+        Age: Number(request.body.Age),
+        Picture: request.body.Picture,
+        Region: request.body.Region,
+        Gender: request.body.Gender,
+        Bio: request.body.Bio,
+    }
+
+        
+    var user = await User.findByIdAndUpdate(decodedToken.Id, newUserData)
+    var bunny = await Bunny.findByIdAndUpdate(decodedToken.bunnyId, newBunnyData)
+
+    response.sendStatus(200);
 };

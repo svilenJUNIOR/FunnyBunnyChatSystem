@@ -17,10 +17,10 @@ export const Edit = () => {
         Region: "",
         Gender: "",
         HairColor: "",
-        LookingFor: "",
         Email: "",
         Password: "",
         SignatureJoke: "",
+        Bio: "",
     });
 
     var SubmitHandler = async (e) => {
@@ -43,11 +43,8 @@ export const Edit = () => {
                 <table className="EditTable">
                     <tbody>
                         <tr>
-                            <td><label htmlFor="Gender"><b>Gender</b></label></td>
-                            <td><input type="text" placeholder="asbgsrrgasfdasbvsa" name="Gender" value={values.Gender} onChange={ChangeHandler} /></td>
-
-                            <td><label htmlFor="LookingFor"><b>LookingFor</b></label></td>
-                            <td><input type="text" placeholder="asbgsrrgasfdasbvsa" name="LookingFor" value={values.LookingFor} onChange={ChangeHandler} /></td>
+                            <td colSpan={2}><label htmlFor="Gender"><b>Gender</b></label></td>
+                            <td colSpan={2}><input type="text" placeholder="asbgsrrgasfdasbvsa" name="Gender" value={values.Gender} onChange={ChangeHandler} /></td>
                         </tr>
 
                         <tr>
@@ -98,7 +95,12 @@ export const Edit = () => {
                             <td><input type="text" placeholder="asbgsrrgasfdasbvsa" name="SignatureJoke" value={values.SignatureJoke} onChange={ChangeHandler} /></td>
                         </tr>
 
-                        <tr><td colSpan={4}><button type="submit">Edit</button></td></tr>
+                        <tr>
+                            <td><label htmlFor="Bio"><b>Bio: </b></label></td>
+                            <td><input type="text" placeholder="asbgsrrgasfdasbvsa" name="Bio" value={values.Bio} onChange={ChangeHandler} /></td>
+                            <td colSpan={2}><button type="submit">Edit</button></td>
+                        </tr>
+
                     </tbody>
                 </table>
             </form>
