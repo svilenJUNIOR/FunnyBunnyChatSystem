@@ -1,5 +1,7 @@
 var hasher = require("bcrypt");
 var User = require("../../Data/Models/User")
+var Bunny = require("../../Data/Models/Bunny")
+
 var jwt = require("jsonwebtoken");
 
 var { promisify } = require("util");
@@ -23,17 +25,32 @@ exports.Register = async (request, response) => {
 
 exports.Login = async (request, response) => {
     var user = await User.findOne({ Email: request.body.Email });
+    var bunny = await Bunny.findOne({ UserId: user._id });
 
-    let token = new Promise((resolve, reject) => {
-        jwt.sign({ Id: user._id, Email: user.Email, isPremium: user.HasBunny }, "JWTSecret", { expiresIn: '2d' }, (err, token) => {
-            if (err) {
-                return reject(err);
-            }
-            resolve(token);
+    if (bunny) {
+        let token = new Promise((resolve, reject) => {
+            jwt.sign({ Id: user._id, Email: user.Email, isPremium: user.HasBunny, bunnyId: bunny._id }, "JWTSecret", (err, token) => {
+                if (err) reject(err);
+                resolve(token);
+            });
         });
-    });
-    var jwtToken = await token;
-    response.cookie("IsAuth", jwtToken);
+        var jwtToken = await token;
+        response.cookie("IsAuth", jwtToken);
+    }
+
+    else {
+        let token = new Promise((resolve, reject) => {
+            jwt.sign({ Id: user._id, Email: user.Email, isPremium: user.HasBunny }, "JWTSecret", { expiresIn: '2d' }, (err, token) => {
+                if (err) {
+                    return reject(err);
+                }
+                resolve(token);
+            });
+        });
+        var jwtToken = await token;
+        response.cookie("IsAuth", jwtToken);
+    }
+
     response.send(user);
 };
 
@@ -42,11 +59,14 @@ exports.ChangeToken = async (request, response) => {
 
     if (tokenTemp) {
         let decodedToken = await jwtVerify(tokenTemp, "JWTSecret");
+        var bunny = await Bunny.find({ "UserId": decodedToken.Id }).lean();
+
+        var bunnyId = bunny[0]._id;
 
         decodedToken.isPremium = true;
 
         let token = new Promise((resolve, reject) => {
-            jwt.sign({ ...decodedToken }, "JWTSecret", (err, token) => {
+            jwt.sign({ Id: decodedToken.Id, Email: decodedToken.Email, isPremium: decodedToken.isPremium, bunnyId: bunnyId }, "JWTSecret", (err, token) => {
                 if (err) reject(err);
                 resolve(token);
             });

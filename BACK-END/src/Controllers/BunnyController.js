@@ -9,4 +9,7 @@ router.get("/All", async (request, response) => {
 router.post("/Create", async (request, response) => await bunnyService.Create(request, response))
 
 router.get("/ProfileData", async (request, response) => await bunnyService.ProfileData(request, response))
+
+router.post("/Edit", async (request, response) => await bunnyService.Edit(request, response));
+
 module.exports = router;

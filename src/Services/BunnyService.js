@@ -15,3 +15,16 @@ export var ProfileData = async () => {
         .then(response => response.json())
         .then(data => { return data; })
 }
+
+export var EditPersonalInfo = async () => {
+    return await fetch("http://localhost:4000/Bunny/Edit", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        credentials: "include",
+        body: JSON.stringify()
+    })
+        .then(response => response.json())
+        .then(data => { return data })
+}

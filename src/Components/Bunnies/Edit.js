@@ -1,7 +1,12 @@
 import "./Styles/Edit.css"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom";
+var bunnyService = require("../../Services/BunnyService");
+
 
 export const Edit = () => {
+
+    var navigate = useNavigate();
 
     var [values, setValues] = useState({
         Name: "",
@@ -18,9 +23,10 @@ export const Edit = () => {
         SignatureJoke: "",
     });
 
-    var SubmitHandler = (e) => {
+    var SubmitHandler = async (e) => {
         e.preventDefault();
-        console.log(values);
+        await bunnyService.EditPersonalInfo(values);
+        navigate("/Bunny/Profile");
     };
 
     var ChangeHandler = (e) => {
@@ -56,7 +62,7 @@ export const Edit = () => {
                             <td><label htmlFor="ChatName"><b>ChatName</b></label></td>
                             <td><input type="text" placeholder="asbgsrrgasfdasbvsa" name="ChatName" value={values.ChatName} onChange={ChangeHandler} /></td>
 
-                            <td><label htmlFor="Age"><b>Age</b></label></td> {/*MAYBE SOMEDAY YOU'LL NEED TO CHANGE THE AGE TO NUMBER YOU LAZY FUCK*/}
+                            <td><label htmlFor="Age"><b>Age</b></label></td>
                             <td><input type="text" placeholder="asbgsrrgasfdasbvsa" name="Age" value={values.Age} onChange={ChangeHandler} /></td>
                         </tr>
 
