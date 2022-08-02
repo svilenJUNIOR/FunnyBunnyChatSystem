@@ -28,3 +28,9 @@ export var EditPersonalInfo = async (values) => {
         .then(response => response.json())
         .then(data => { return data })
 }
+
+export var ReturnUser = async () => {
+    return await fetch("http://localhost:4000/User/ReturnUser", { credentials: "include" })
+    .then(response => response.json())
+    .then(data => { return data; })
+}

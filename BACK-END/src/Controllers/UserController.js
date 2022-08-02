@@ -13,4 +13,5 @@ router.get("/ReturnToken", async (request, response) => await userService.Return
 
 router.post("/TakeById", async (request, response) => await userService.TakeById(request, response));
 
+router.get("/ReturnUser", async (request, response) => await userService.ReturnUser(request, response));
 module.exports = router;

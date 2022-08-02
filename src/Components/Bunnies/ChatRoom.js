@@ -1,6 +1,7 @@
 import "./Styles/ChatRoom.css"
 import { useLocation } from "react-router-dom"
 import { useState } from "react"
+var bunnyService = require("../../Services/BunnyService")
 
 export const ChatRoom = (value) => {
 
@@ -17,7 +18,12 @@ export const ChatRoom = (value) => {
 
     var SubmitHandler = async (e) => {
         e.preventDefault();
-        console.log(`${location.state.ChatName} -  ${msg.Message}`)
+
+        var sender = await bunnyService.ReturnUser();
+        var message = msg.Message;
+        var receiver = location.state.ChatName;
+
+        console.log(`${sender.Name} -  ${message} to ${receiver}`);
     };
 
     return (

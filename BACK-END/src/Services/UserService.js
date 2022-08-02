@@ -91,3 +91,12 @@ exports.TakeById = async (request, response) => {
     user.HasBunny = true;
     response.send(user)
 }
+
+exports.ReturnUser = async (request, response) => {
+    var token = request.cookies["IsAuth"];
+    var decodedToken = await jwtVerify(token, "JWTSecret");
+
+    var user = await this.GetById(decodedToken.Id);
+    
+    response.send(user);
+};
