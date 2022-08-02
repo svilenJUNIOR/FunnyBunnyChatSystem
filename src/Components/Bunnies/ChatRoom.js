@@ -1,9 +1,10 @@
 import "./Styles/ChatRoom.css"
 import { useLocation } from "react-router-dom"
 import { useState } from "react"
+
 var bunnyService = require("../../Services/BunnyService")
 
-export const ChatRoom = (value) => {
+export const ChatRoom = () => {
 
     var location = useLocation();
 
@@ -23,13 +24,17 @@ export const ChatRoom = (value) => {
         var message = msg.Message;
         var receiver = location.state.ChatName;
 
-        console.log(`${sender.Name} -  ${message} to ${receiver}`);
+        var msgDiv = document.querySelector(".Chat");
+        var messageElement = document.createElement("li")
+        messageElement.textContent = `${sender.Name} -  ${message} to ${receiver}`;
+        messageElement.className = "Message";
+
+        msgDiv.appendChild(messageElement);
     };
 
     return (
         <div>
             <div className="Chat">
-                <p className="Message"><b>Name: Message</b></p>
             </div>
 
             <form onSubmit={SubmitHandler}>
