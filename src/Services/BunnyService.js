@@ -29,8 +29,21 @@ export var EditPersonalInfo = async (values) => {
         .then(data => { return data })
 }
 
-export var ReturnUser = async () => {
-    return await fetch("http://localhost:4000/User/ReturnUser", { credentials: "include" })
+export var ReturnBunny = async () => {
+    return await fetch("http://localhost:4000/Bunny/ReturnBunny", { credentials: "include" })
     .then(response => response.json())
     .then(data => { return data; })
+}
+
+export var SaveMessage = async (values) => {
+    return await fetch("http://localhost:4000/Bunny/SaveMessage", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        credentials: "include",
+        body: JSON.stringify(values)
+    })
+        .then(response => response.json())
+        .then(data => { return data })
 }

@@ -66,3 +66,20 @@ exports.Edit = async (request, response) => {
 
     response.sendStatus(200);
 };
+
+exports.ReturnBunny = async (request, response) => {
+    var token = request.cookies["IsAuth"];
+    var decodedToken = await jwtVerify(token, "JWTSecret");
+
+    var bunny = await this.GetById(decodedToken.bunnyId);
+    
+    response.send(bunny);
+};
+
+exports.SaveMessage = async (request, response) => {
+    var msg = `From ${request.body.ChatName} - ${request.body.message}`;
+    // var receiver = await Bunny.findOne({"ChatName": request.body.receiver});
+    // receiver.Messages.push(msg);
+
+    await Bunny.findOneAndUpdate({"ChatName": request.body.receiver}, {$push: {Messages: msg}});
+};

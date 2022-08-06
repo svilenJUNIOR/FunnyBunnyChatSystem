@@ -29,6 +29,9 @@ var bunnySchema = new mongoose.Schema({
             ref: 'Bunny'
         }
     ],
+    Messages: [{
+        type: String
+    }]
 });
 
 var Bunny = mongoose.model('Bunny', bunnySchema);

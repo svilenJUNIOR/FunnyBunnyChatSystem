@@ -12,4 +12,8 @@ router.get("/ProfileData", async (request, response) => await bunnyService.Profi
 
 router.post("/Edit", async (request, response) => await bunnyService.Edit(request, response));
 
+router.post("/SaveMessage", async (request, response) => await bunnyService.SaveMessage(request, response));
+
+router.get("/ReturnBunny", async (request, response) => await bunnyService.ReturnBunny(request, response));
+
 module.exports = router;

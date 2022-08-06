@@ -20,16 +20,18 @@ export const ChatRoom = () => {
     var SubmitHandler = async (e) => {
         e.preventDefault();
 
-        var sender = await bunnyService.ReturnUser();
+        var sender = await bunnyService.ReturnBunny();
         var message = msg.Message;
         var receiver = location.state.ChatName;
 
-        var msgDiv = document.querySelector(".Chat");
-        var messageElement = document.createElement("li")
-        messageElement.textContent = `${sender.Name} -  ${message} to ${receiver}`;
-        messageElement.className = "Message";
+        await bunnyService.SaveMessage({...sender, message, receiver});
+        // var msgDiv = document.querySelector(".Chat");
+        // var messageElement = document.createElement("li")
 
-        msgDiv.appendChild(messageElement);
+        // messageElement.textContent = `${sender.Name} -  ${message} to ${receiver}`;
+        // messageElement.className = "Message";
+
+        // msgDiv.appendChild(messageElement);
     };
 
     return (
@@ -40,7 +42,7 @@ export const ChatRoom = () => {
             <form onSubmit={SubmitHandler}>
 
                 <div className="Keyboard">
-                    <label htmlFor="Message"><b>Message</b></label>
+                    <label htmlFor="Message"></label>
                     <textarea name="Message" className="TextArea" placeholder="Enter Message Here" value={msg.Message} onChange={ChangeHandler} required></textarea>
                 </div>
                 <div className="DivButton">
