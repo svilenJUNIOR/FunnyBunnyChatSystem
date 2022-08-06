@@ -60,7 +60,7 @@ exports.Edit = async (request, response) => {
         Bio: request.body.Bio,
     }
 
-        
+
     var user = await User.findByIdAndUpdate(decodedToken.Id, newUserData)
     var bunny = await Bunny.findByIdAndUpdate(decodedToken.bunnyId, newBunnyData)
 
@@ -72,14 +72,18 @@ exports.ReturnBunny = async (request, response) => {
     var decodedToken = await jwtVerify(token, "JWTSecret");
 
     var bunny = await this.GetById(decodedToken.bunnyId);
-    
+
     response.send(bunny);
 };
 
 exports.SaveMessage = async (request, response) => {
     var msg = `From ${request.body.ChatName} - ${request.body.message}`;
-    // var receiver = await Bunny.findOne({"ChatName": request.body.receiver});
-    // receiver.Messages.push(msg);
+    var receiver = await Bunny.findOne({ "ChatName": request.body.receiver });
 
-    await Bunny.findOneAndUpdate({"ChatName": request.body.receiver}, {$push: {Messages: msg}});
+    if (receiver.Messages.length >= 5) {
+        await Bunny.findOneAndUpdate({ "ChatName": request.body.receiver }, { $set: { Messages: [] } });
+    }
+    else {
+        await Bunny.findOneAndUpdate({ "ChatName": request.body.receiver }, { $push: { Messages: msg } });
+    }
 };
