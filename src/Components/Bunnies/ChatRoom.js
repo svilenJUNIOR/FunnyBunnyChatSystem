@@ -24,14 +24,9 @@ export const ChatRoom = () => {
         var message = msg.Message;
         var receiver = location.state.ChatName;
 
-        await bunnyService.SaveMessage({...sender, message, receiver});
-        // var msgDiv = document.querySelector(".Chat");
-        // var messageElement = document.createElement("li")
-
-        // messageElement.textContent = `${sender.Name} -  ${message} to ${receiver}`;
-        // messageElement.className = "Message";
-
-        // msgDiv.appendChild(messageElement);
+        bunnyService.SaveMessage({...sender, message, receiver});
+        var messages = bunnyService.ReturnMessages({receiver});
+        console.log(messages);
     };
 
     return (

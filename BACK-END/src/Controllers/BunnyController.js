@@ -16,4 +16,5 @@ router.post("/SaveMessage", async (request, response) => await bunnyService.Save
 
 router.get("/ReturnBunny", async (request, response) => await bunnyService.ReturnBunny(request, response));
 
+router.post("/ReturnMessages",  async (request, response) => await bunnyService.ReturnMessages(request, response));
 module.exports = router;

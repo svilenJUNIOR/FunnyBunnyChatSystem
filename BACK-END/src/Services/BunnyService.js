@@ -87,3 +87,9 @@ exports.SaveMessage = async (request, response) => {
         await Bunny.findOneAndUpdate({ "ChatName": request.body.receiver }, { $push: { Messages: msg } });
     }
 };
+
+exports.ReturnMessages = async (request, response) => {
+    var receiver = await Bunny.findOne({ "ChatName": request.body.receiver });
+    var messages = receiver.Messages;
+    response.send(messages);
+}

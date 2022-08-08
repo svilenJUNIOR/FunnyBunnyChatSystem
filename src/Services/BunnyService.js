@@ -47,3 +47,16 @@ export var SaveMessage = async (values) => {
         .then(response => response.json())
         .then(data => { return data })
 }
+
+export var ReturnMessages = async (values) => {
+    return await fetch("http://localhost:4000/Bunny/ReturnMessages", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        credentials: "include",
+        body: JSON.stringify(values)
+    })
+        .then(response => response.json())
+        .then(data => { return data })
+}
