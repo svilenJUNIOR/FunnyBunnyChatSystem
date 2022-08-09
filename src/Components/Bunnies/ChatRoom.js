@@ -1,6 +1,7 @@
 import "./Styles/ChatRoom.css"
 import { useLocation } from "react-router-dom"
 import { useState } from "react"
+import { ChatPartial } from "../Partials/ChatPartial"
 
 var bunnyService = require("../../Services/BunnyService")
 
@@ -9,6 +10,8 @@ export const ChatRoom = () => {
     var location = useLocation();
 
     var [msg, setMsg] = useState({ Message: "", });
+
+    var [messages, setMessages] = useState([]);
 
     var ChangeHandler = (e) => {
         setMsg(state => ({
@@ -24,14 +27,21 @@ export const ChatRoom = () => {
         var message = msg.Message;
         var receiver = location.state.ChatName;
 
-        bunnyService.SaveMessage({...sender, message, receiver});
-        var messages = bunnyService.ReturnMessages({receiver});
-        console.log(messages);
+        bunnyService.SaveMessage({ ...sender, message, receiver });
+        
+        var data = bunnyService.ReturnMessages(receiver)
+        var promise = Promise.resolve(data);
+        promise.then((value) => {
+            setMessages(value);
+        });
     };
 
     return (
         <div>
             <div className="Chat">
+                <ol>
+                    {messages.map(msg => <ChatPartial  {...msg} />)}
+                </ol>
             </div>
 
             <form onSubmit={SubmitHandler}>

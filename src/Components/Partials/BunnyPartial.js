@@ -9,8 +9,10 @@ export var BunnyPartial = ({Picture, ChatName, Age, Region, Gender, Bio}) => {
         <td>Region: {Region}</td>
         <td>Gender: {Gender}</td>
         <td>Bio: {Bio}</td>
-        <td><NavLink to="/Bunny/Chat" state={{ ChatName: ChatName }}
-        ><button type="submit">Chat</button></NavLink></td>
+        <td><NavLink to="/Bunny/Chat" state={{ ChatName: ChatName }}>
+        <button type="submit">Chat</button></NavLink></td>
+        <td><NavLink to="/Bunny/AddFriend" state={{ ChatName: ChatName }}>
+        <button type="submit">Add Friend</button></NavLink></td>
     </tr>
     )
    

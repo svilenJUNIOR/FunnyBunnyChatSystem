@@ -5,6 +5,7 @@ import { All } from "../Components/Bunnies/All"
 import { Profile } from "../Components/Bunnies/Profile"
 import { ChatRoom } from "./Bunnies/ChatRoom"
 import { Edit } from "../Components/Bunnies/Edit"
+import { AddFriend } from "../Components/Bunnies/AddFriend"
 import { Routes, Route } from "react-router-dom"
 import { useEffect, useState } from "react"
 
@@ -35,6 +36,7 @@ function App() {
                     <Route path="Bunny/Profile" element={<Profile />} />
                     <Route path="Bunny/Chat" element={<ChatRoom />} />
                     <Route path="Bunny/Edit" element={<Edit />} />
+                    <Route path="Bunny/AddFriend" element={<AddFriend />} />
                 </Routes>
 
             </div>

@@ -60,3 +60,16 @@ export var ReturnMessages = async (values) => {
         .then(response => response.json())
         .then(data => { return data })
 }
+
+export var AddFriend = async (value) => {
+    return await fetch("http://localhost:4000/Bunny/AddFriend", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        credentials: "include",
+        body: JSON.stringify(value)
+    })
+        .then(response => response.json())
+        .then(data => { return data })
+}
