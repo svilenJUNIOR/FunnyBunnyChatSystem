@@ -186,7 +186,7 @@ export const Profile = (props) => {
                     <h2 className="Friends">My Friends</h2>
                     <table className="FriendsTable">
                         <tbody>
-                            {bunny.Friends.map(fr => <FriendPartial key={fr._id} {...fr} />)}
+                            {bunny.Friends}
                         </tbody>
                     </table>
                 </div>

@@ -23,12 +23,9 @@ var bunnySchema = new mongoose.Schema({
         type: mongoose.Types.ObjectId,
         ref: "User"
     },
-    Friends: [
-        {
-            type: mongoose.Types.ObjectId,
-            ref: 'Bunny'
-        }
-    ],
+    Friends: [{
+            type: String,
+        }],
     Messages: [{
         type: String
     }]

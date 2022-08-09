@@ -94,10 +94,17 @@ exports.ReturnMessages = async (request, response) => {
 
 exports.AddFriend = async (request, response) => {
     var chatName = request.body.state.ChatName;
+    var bunny = await Bunny.findOne({ "ChatName": chatName });
 
     var token = request.cookies["IsAuth"];
     var decodedToken = await jwtVerify(token, "JWTSecret");
     var me = await this.GetById(decodedToken.bunnyId);
 
-    await Bunny.findOneAndUpdate({ "ChatName": chatName }, { $push: { Friends: me._id } });
+    var check = bunny.Friends.includes(me._id);
+
+    console.log(check)
+
+    if (!check){
+        await Bunny.findOneAndUpdate({ "ChatName": chatName }, { $push: { Friends: chatName } });
+    }
 }

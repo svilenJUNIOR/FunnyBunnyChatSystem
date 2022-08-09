@@ -8,5 +8,5 @@ export const AddFriend = async () => {
     var navigate = useNavigate();
 
     var result = await bunnyService.AddFriend(location);
-    navigate("/Bunny/Profile")
+    navigate("Bunny/Profile")
 }
